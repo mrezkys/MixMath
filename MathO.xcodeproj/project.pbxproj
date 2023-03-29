@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B9999B329D404E500B62347 /* OnboardingStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9999B229D404E500B62347 /* OnboardingStep.swift */; };
+		2B9999B529D4060C00B62347 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B9999B429D4060C00B62347 /* OnboardingView.swift */; };
 		2BE4F6A929D3F41C00D83CDF /* MathOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */; };
 		2BE4F6AB29D3F41C00D83CDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */; };
 		2BE4F6AD29D3F41D00D83CDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B9999B229D404E500B62347 /* OnboardingStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStep.swift; sourceTree = "<group>"; };
+		2B9999B429D4060C00B62347 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2BE4F6A529D3F41C00D83CDF /* MathO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MathO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOApp.swift; sourceTree = "<group>"; };
 		2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */,
 				2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */,
 				2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */,
+				2B9999B229D404E500B62347 /* OnboardingStep.swift */,
+				2B9999B429D4060C00B62347 /* OnboardingView.swift */,
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
 			);
@@ -262,6 +268,8 @@
 			files = (
 				2BE4F6AB29D3F41C00D83CDF /* ContentView.swift in Sources */,
 				2BE4F6A929D3F41C00D83CDF /* MathOApp.swift in Sources */,
+				2B9999B329D404E500B62347 /* OnboardingStep.swift in Sources */,
+				2B9999B529D4060C00B62347 /* OnboardingView.swift in Sources */,
 				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
