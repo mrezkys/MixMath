@@ -14,6 +14,7 @@
 		2BE4F6BA29D3F41D00D83CDF /* MathOTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6B929D3F41D00D83CDF /* MathOTests.swift */; };
 		2BE4F6C429D3F41D00D83CDF /* MathOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6C329D3F41D00D83CDF /* MathOUITests.swift */; };
 		2BE4F6C629D3F41D00D83CDF /* MathOUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6C529D3F41D00D83CDF /* MathOUITestsLaunchTests.swift */; };
+		2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		2BE4F6BF29D3F41D00D83CDF /* MathOUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MathOUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE4F6C329D3F41D00D83CDF /* MathOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOUITests.swift; sourceTree = "<group>"; };
 		2BE4F6C529D3F41D00D83CDF /* MathOUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */,
+				2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */,
 				2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */,
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
@@ -259,6 +262,7 @@
 			files = (
 				2BE4F6AB29D3F41C00D83CDF /* ContentView.swift in Sources */,
 				2BE4F6A929D3F41C00D83CDF /* MathOApp.swift in Sources */,
+				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

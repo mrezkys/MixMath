@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var showContent = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        if showContent {
+            return AnyView(Text("Hello, world!"))
+        } else {
+            return AnyView(SplashScreenView().onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                    self.showContent = true
+                }
+            })
         }
-        .padding()
     }
 }
 
