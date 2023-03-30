@@ -75,6 +75,12 @@ struct OnboardingView: View {
                 }
                 .buttonStyle(PlainButtonStyle())
                 
+                NavigationLink(destination: HomeView(), isActive: $isOnboardingComplete) {
+                    EmptyView()
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
+                }
+                
                 Spacer()
                     .frame(maxHeight: 100)
             }
