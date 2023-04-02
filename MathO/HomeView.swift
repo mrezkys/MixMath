@@ -17,9 +17,7 @@ struct HomeView: View {
                     .resizable()
                     .scaledToFit()
                 
-                Button(action:{
-                    
-                }) {
+                NavigationLink(destination: QuestionPage(currentPageIndex: 0)) {
                     Image(systemName: "play.fill")
                         .font(.largeTitle)
                         .padding(32)
@@ -40,6 +38,7 @@ struct HomeView: View {
                     // TODO: - Change destination view
                     NavigationLink(destination: OnboardingView()) {
                         Text("Tutorial")
+                            .bold()
                     }
                 }
                 .padding(.top, 32)
