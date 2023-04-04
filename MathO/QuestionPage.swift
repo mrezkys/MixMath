@@ -13,6 +13,7 @@ struct AnswerButton: View {
     @Binding var isSelected: [Bool]
     let index: Int
     let correctAnswer: Int
+    @Binding var answerCorrectly: [Bool]
     
     var body: some View {
         Button {
@@ -20,18 +21,21 @@ struct AnswerButton: View {
                 if correctAnswer == generatedNumber {
                     isCircle[index].toggle()
                     isSelected[index].toggle()
+                    answerCorrectly.append(true)
                 } else {
                     isSelected[index].toggle()
+                    answerCorrectly.append(false)
                 }
             }
         } label: {
             Text("\(generatedNumber)")
                 .font(.system(size: 36, design: .rounded))
                 .bold()
+                .foregroundColor(Color.black)
                 .frame(maxWidth: .infinity, maxHeight: 400)
                 .background(
-                    RoundedRectangle(cornerRadius: isCircle[index] ? .infinity : 10)
-                        .fill(isCircle[index] ? Color.green : isSelected[index] ? Color.red : Color.blue)
+                    RoundedRectangle(cornerRadius: isCircle[index] ? .infinity : 24)
+                        .fill(isCircle[index] ? Color.green : isSelected[index] ? Color.red : Color("water"))
                         .scaleEffect(isCircle[index] ? 1.0 : 1.0)
                         .animation(.easeIn(duration: 0.1))
                 )
@@ -47,50 +51,52 @@ struct AnswerButton: View {
 }
 
 struct QuestionPage: View {
-    var question: [Math] = [Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math()]
-    @State public var currentPageIndex: Int
+    @State var question: [Math] = [Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math(), Math()]
+    @State public var currentPageIndex: Int = 0
     @State public var isCircle: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
     @State public var isSelected: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
     @State var showSummaryView: Bool = false
+    @State var answerCorrectly: [Bool] = []
     
     var body: some View {
         VStack {
             var _ = print(question)
             Text(question[currentPageIndex].stringQuestion)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 24)
                 .font(.system(size: 500))
                 .lineLimit(1)
                 .minimumScaleFactor(0.01)
                 .bold()
                 .frame(maxWidth: .infinity, maxHeight: 240)
-                .background(Color("orangeColor"))
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color("orangeColor"), lineWidth: 2)
-                )
-                .padding(.horizontal, 32)
+                .background(Color("celestialBlue"))
+                .cornerRadius(24)
+                .padding([.top, .leading, .trailing], 24)
                 .foregroundColor(Color.white)
-            
-            Spacer()
             
             VStack(spacing: 16) {
                 HStack(spacing: 16) {
-                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].correctAnswer)
+                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly)
                     
-                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].correctAnswer)
+                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly)
                 }
                 .padding(.horizontal, 32)
                 
                 HStack(spacing: 16) {
-                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].correctAnswer)
+                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly)
                     
-                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].correctAnswer)
+                    AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly)
                 }
                 .padding(.horizontal, 32)
             }
-            
+            .padding(.top, 32)
             Spacer()
+            
+            Image("book-illustration")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 42)
+                .offset(y: 35)
         }
         .padding(.top, 35)
         .navigationBarTitle("Mari Berhitung 🤓")
@@ -109,7 +115,7 @@ struct QuestionPage: View {
             
         }))
         NavigationLink(
-            destination: TestView(question: question, isCircle: isCircle, isSelected: isSelected),
+            destination: TestView(question: question, isCircle: isCircle, isSelected: isSelected, answerCorrectly: $answerCorrectly),
             isActive: $showSummaryView
         ) {
             EmptyView()
@@ -120,6 +126,6 @@ struct QuestionPage: View {
 
 struct QuestionPage_Previews: PreviewProvider {
     static var previews: some View {
-        QuestionPage(currentPageIndex: 0)
+        QuestionPage(question: [Math()])
     }
 }
