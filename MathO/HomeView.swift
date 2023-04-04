@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    
     var body: some View {
         
         NavigationView {
@@ -17,16 +18,16 @@ struct HomeView: View {
                     .resizable()
                     .scaledToFit()
                 
-                NavigationLink(destination: QuestionPage(currentPageIndex: 0)) {
+                NavigationLink(destination: QuestionPage()) {
                     Image(systemName: "play.fill")
                         .font(.largeTitle)
                         .padding(32)
                         .frame(maxWidth: .infinity)
-                        .background(Color("orangeColor"))
+                        .background(Color("celestialBlue"))
                         .cornerRadius(10)
                         .overlay(
                             RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color("orangeColor"), lineWidth: 2)
+                                .stroke(Color("celestialBlue"), lineWidth: 2)
                         )
                         .padding(.horizontal, 32)
                         .foregroundColor(Color.white)
@@ -38,7 +39,8 @@ struct HomeView: View {
                     // TODO: - Change destination view
                     NavigationLink(destination: OnboardingView()) {
                         Text("Tutorial")
-                            .bold()
+                            .fontWeight(.heavy)
+                            .foregroundColor(Color("celestialBlue"))
                     }
                 }
                 .padding(.top, 32)
