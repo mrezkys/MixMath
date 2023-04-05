@@ -9,6 +9,9 @@ import SwiftUI
 
 
 struct TutorialView: View {
+    var displayText = "Jawablah pertanyaan yang muncul di sini dengan jawaban yang tersedia di bawah"
+    @State  var showDisplayText : Bool = true
+    
     var questionX: String = "1 + 3 x 2"
     var choices: [Int] = [7, 8, 12, 18]
     var answer: Int = 7
@@ -18,19 +21,37 @@ struct TutorialView: View {
     @State var showSummaryView: Bool = false
     @State var answerCorrectly: [Bool] = []
     
+    
+    
     var body: some View {
         VStack {
-            Text(questionX)
-                .padding(.horizontal, 32)
-                .font(.system(size: 500))
-                .lineLimit(1)
-                .minimumScaleFactor(0.01)
-                .bold()
-                .frame(maxWidth: .infinity, maxHeight: 240)
-                .background(Color("celestialBlue"))
-                .cornerRadius(24)
-                .padding([.top, .leading, .trailing], 24)
-                .foregroundColor(Color.white)
+            if (showDisplayText)
+            {
+                Text(displayText)
+                    .padding(.horizontal, 32)
+                    .font(.system(size: 24))
+                    .multilineTextAlignment(.center)
+                    .bold()
+                    .frame(maxWidth: .infinity, maxHeight: 240)
+                    .background(Color("celestialBlue"))
+                    .cornerRadius(24)
+                    .padding([.top, .leading, .trailing], 24)
+                    .foregroundColor(Color.white)
+            }
+            else {
+                Text(questionX)
+                    .padding(.horizontal, 32)
+                    .font(.system(size: 500))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.01)
+                    .bold()
+                    .frame(maxWidth: .infinity, maxHeight: 240)
+                    .background(Color("celestialBlue"))
+                    .cornerRadius(24)
+                    .padding([.top, .leading, .trailing], 24)
+                    .foregroundColor(Color.white)
+                
+            }
             
             VStack(spacing: 16) {
                 HStack(spacing: 16) {
@@ -40,7 +61,7 @@ struct TutorialView: View {
                     AnswerButton(generatedNumber: choices[1], isCircle: $isCircle, isSelected: $isSelected, index: 1, correctAnswer: answer, answerCorrectly: $answerCorrectly)
                 }
                 .padding(.horizontal, 32)
-            
+                
                 HStack(spacing: 16) {
                     AnswerButton(generatedNumber: choices[2], isCircle: $isCircle, isSelected: $isSelected, index: 2, correctAnswer: answer, answerCorrectly: $answerCorrectly)
                     
@@ -64,14 +85,19 @@ struct TutorialView: View {
             trailing:
                 Button(
                     action: {
-                    // go to homepage
-                },
+                        // go to homepage
+                    },
                     label: {
                         Text("Finish")
                     }
                 )
-        )
-
+        ).onAppear{
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
+                self.showDisplayText = false
+                
+            }
+        }
+        
         
     }
 }
