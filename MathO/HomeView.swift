@@ -36,8 +36,7 @@ struct HomeView: View {
                 
                 HStack {
                     Text("Belum pernah bermain?")
-                    // TODO: - Change destination view
-                    NavigationLink(destination: OnboardingView()) {
+                    NavigationLink(destination: TutorialView()) {
                         Text("Tutorial")
                             .fontWeight(.heavy)
                             .foregroundColor(Color("celestialBlue"))
