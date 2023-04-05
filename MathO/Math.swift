@@ -7,18 +7,32 @@
 
 import Foundation
 
+let MathPattern: [String] = ["-,+,*",
+                             "+,/,-",
+                             "-,*,/",
+                             "+,-,/",
+                             "-,+,*",
+                             "+,+,/",
+                             "+,-,*",
+                             "*,-,+",
+                             "/,*,-",
+                             "*,+,/",]
+
 struct Math{
     
-    let selectedPattern = ["+","/","-","*"]
+    let selectedPattern = ["+",":","-","x"]
     let randomQuestion: (number: [Int], parenthesis: [Int]?)
     var stringQuestion: String
     let correctAnswer: Int
     let answerOption: (answerOptions: [Int], rightAnswerIndex: Int?)
+    let solution: [MathSolution]
     
     init() {
-        self.randomQuestion = Math.GenerateQuestion(opsArr: selectedPattern, isParenthesis: false)
-        self.stringQuestion = Math.ShowSolvingStep(numArr: randomQuestion.number, opsArr: selectedPattern, parenthesis: randomQuestion.parenthesis)
-        self.correctAnswer = Math.CalculateMixedOperation(numArrPar: randomQuestion.number, opsArrPar: selectedPattern)
+        self.randomQuestion = Math.GenerateQuestion(opsArr: selectedPattern, isParenthesis: true)
+        self.stringQuestion = Math.ShowSolvingStep(numArr: randomQuestion.number, opsArr: selectedPattern, opsIndex: -1, parenthesis: randomQuestion.parenthesis)[0]
+        var result = Math.CalculateMixedOperation(numArrPar: randomQuestion.number, opsArrPar: selectedPattern, parenthesis: randomQuestion.parenthesis)
+        self.correctAnswer = result.correctAnswer
+        self.solution = result.solution
         self.answerOption = Math.GenerateAnswerOptions(numArr: randomQuestion.number, opsArr: selectedPattern, rightAnswer: self.correctAnswer)
     }
     
@@ -57,8 +71,8 @@ struct Math{
                     parenthesisOps+=1
                     parenthesisWrap-=1
                 }
-                if !opsArr.contains("/") {break}
-                if let index = opsArr.firstIndex(of: "/") {
+                if !opsArr.contains(":") {break}
+                if let index = opsArr.firstIndex(of: ":") {
                     if parenthesis.contains(index) {break}
                     let gapFromDiv1 = parenthesis[0] - index
                     let gapFromDiv2 = parenthesis[parenthesis.count-1] - index
@@ -70,7 +84,7 @@ struct Math{
             }
         }
         
-        if !opsArr.contains("/") {
+        if !opsArr.contains(":") {
             while(opsArr.count + 1 > index) {
                 numArr[index] = Int.random(in: rangeAddSub)
                 index+=1
@@ -79,7 +93,7 @@ struct Math{
         }
         
         for ops in opsArr {
-            if ops == "/" && opsArr[index-1] == "*" && !isParenthesis{
+            if ops == ":" && opsArr[index-1] == "x" && !isParenthesis{
                 numArr[index] = Int.random(in: rangeAddSub)
                 var operandDivision = 10
                 while operandDivision > 1 {
@@ -93,7 +107,7 @@ struct Math{
                     tempDivisionOperand = numArr[index-1]
                 }
                 isDivision = true
-            } else if ops == "/" {
+            } else if ops == ":" {
                 tempDivisionOperand = Int.random(in: rangeAddSub)
                 numArr[index] = Int.random(in: rangeAddSub) * tempDivisionOperand
                 isDivision = true
@@ -147,10 +161,10 @@ struct Math{
             case "-":
                 wrongAnswer -= numArr[index]
                 continue
-            case "*":
+            case "x":
                 wrongAnswer *= numArr[index]
                 continue
-            case "/":
+            case ":":
                 if wrongAnswer % numArr[index] == 0 {
                     wrongAnswer /= numArr[index]
                 } else {
@@ -183,12 +197,12 @@ struct Math{
         
     }
     
-    static func GenerateAnswerOptions(numArr: [Int], opsArr: [String], rightAnswer: Int) -> (answerOptions: [Int], rightAnswerIndex: Int?) {
+    static func GenerateAnswerOptions(numArr: [Int] = [], opsArr: [String] = [], rightAnswer: Int) -> (answerOptions: [Int], rightAnswerIndex: Int?) {
         var answerOptions: [Int] = [rightAnswer]
         var answer = 0
         let opsArrCount: Int = opsArr.count
         
-        if opsArrCount == 1 {
+        if opsArrCount <= 1 {
             while(true){
                 answer = randomPickFunction(numArr, opsArr, rightAnswer, selectedFunction: 1)
                 
@@ -225,43 +239,59 @@ struct Math{
         }
     }
 
-    static func CalculateOperationMulDiv(_ numArr: inout [Int],_ opsArr: inout [String],_ ops: String,_ index: Int) {
+    static func CalculateOperationMulDiv(_ numArr: inout [Int],_ opsArr: inout [String],_ ops: String,_ index: Int)  -> (show: String, result: Int) {
         let tempN1 = numArr.remove(at: index)
         let tempN2 = numArr.remove(at: index)
+        var operation: String = ""
+        var result: Int = 0
+        
         switch ops {
-        case "/":
-            numArr.insert(tempN1 / tempN2, at: index)
+        case ":":
+            result = tempN1 / tempN2
+            numArr.insert(result, at: index)
             opsArr.remove(at: index)
-            return
-        case "*":
-            numArr.insert(tempN1 * tempN2, at: index)
+            operation = "\(tempN1) : \(tempN2)"
+            return (operation, result)
+        case "x":
+            result = tempN1 * tempN2
+            numArr.insert(result, at: index)
             opsArr.remove(at: index)
-            return
-        default: return
+            operation = "\(tempN1) x \(tempN2)"
+            return (operation, result)
+        default: return (operation, result)
         }
     }
 
-    static func CalculateOperationAddSub(_ numArr: inout [Int],_ opsArr: inout [String],_ ops: String,_ index: Int) {
+    static func CalculateOperationAddSub(_ numArr: inout [Int],_ opsArr: inout [String],_ ops: String,_ index: Int) -> (show: String, result: Int) {
         let tempN1 = numArr.remove(at: index)
         let tempN2 = numArr.remove(at: index)
+        var operation: String = ""
+        var result: Int = 0
+        
         switch ops {
         case "-":
-            numArr.insert(tempN1 - tempN2, at: index)
+            result = tempN1 - tempN2
+            numArr.insert(result, at: index)
             opsArr.remove(at: index)
-            return
+            operation = "\(tempN1) - \(tempN2)"
+            return (operation, result)
         case "+":
-            numArr.insert(tempN1 + tempN2, at: index)
+            result = tempN1 + tempN2
+            numArr.insert(result, at: index)
             opsArr.remove(at: index)
-            return
-        default: return
+            operation = "\(tempN1) + \(tempN2)"
+            return (operation, result)
+        default: return (operation, result)
         }
     }
 
-    static func ShowSolvingStep(numArr: [Int], opsArr: [String], parenthesis: [Int]? = nil) -> String {
+    static func ShowSolvingStep(numArr: [Int], opsArr: [String], opsIndex: Int, parenthesis: [Int]? = nil) -> [String] {
         var Operation = ""
         var index = 0
         var pIndex = 0
         var closeParenthesis = false
+        var highlightOperation = false
+        var splitOperation: [String] = []
         
         for number in numArr {
             if let parenthesis = parenthesis {
@@ -271,7 +301,18 @@ struct Math{
                     closeParenthesis = true
                 }
             }
+            if index == opsIndex {
+                splitOperation.append(Operation)
+                Operation = ""
+                highlightOperation = true
+            }
             Operation += String(number) + " "
+            if highlightOperation && index != opsIndex {
+                splitOperation.append(Operation)
+                Operation = ""
+                highlightOperation = false
+            }
+            Operation += " "
             if let parenthesis = parenthesis {
                 if  (parenthesis[pIndex]) == index - 1 {
                     Operation += ") "
@@ -286,20 +327,27 @@ struct Math{
         if closeParenthesis {
             Operation += ")"
         }
-        return Operation
+        splitOperation.append(Operation)
+        return splitOperation
     }
 
-    static func CalculateMixedOperation(numArrPar: [Int], opsArrPar: [String], parenthesis: [Int]? = nil) -> Int {
+    static func CalculateMixedOperation(numArrPar: [Int], opsArrPar: [String], parenthesis: [Int]? = nil) -> (correctAnswer: Int, solution: [MathSolution]) {
         var numArr = numArrPar
         var opsArr = opsArrPar
+        var solvingStep: [String]
+        var operation: (show: String, result: Int)
+        var randomAnswer: (answerOptions: [Int], rightAnswerIndex: Int?)
+        var mathSolutionSteps: [MathSolution] = []
         var index = 0
         
         if var parenthesis = parenthesis {
             for ops in opsArr {
-                if (ops == "/" || ops == "*") && parenthesis.contains(index){
-                    print(ShowSolvingStep(numArr: numArr, opsArr: opsArr, parenthesis: parenthesis))
+                if (ops == ":" || ops == "x") && parenthesis.contains(index){
+                    solvingStep = ShowSolvingStep(numArr: numArr, opsArr: opsArr,opsIndex: index, parenthesis: parenthesis)
                     RemoveParenthesisElement(&parenthesis, index)
-                    CalculateOperationMulDiv(&numArr, &opsArr, ops, index)
+                    operation = CalculateOperationMulDiv(&numArr, &opsArr, ops, index)
+                    randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
+                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
                     continue
                 }
                 index+=1
@@ -309,9 +357,11 @@ struct Math{
             
             for ops in opsArr {
                 if (ops == "-" || ops == "+") && parenthesis.contains(index){
-                    print(ShowSolvingStep(numArr: numArr, opsArr: opsArr, parenthesis: parenthesis))
+                    solvingStep = ShowSolvingStep(numArr: numArr, opsArr: opsArr,opsIndex: index, parenthesis: parenthesis)
                     RemoveParenthesisElement(&parenthesis, index)
-                    CalculateOperationAddSub(&numArr, &opsArr, ops, index)
+                    operation = CalculateOperationAddSub(&numArr, &opsArr, ops, index)
+                    randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
+                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
                     continue
                 }
                 index+=1
@@ -321,9 +371,11 @@ struct Math{
         }
         
         for ops in opsArr {
-            if ops == "/" || ops == "*" {
-                print(ShowSolvingStep(numArr: numArr, opsArr: opsArr))
-                CalculateOperationMulDiv(&numArr, &opsArr, ops, index)
+            if ops == ":" || ops == "x" {
+                solvingStep = ShowSolvingStep(numArr: numArr, opsArr: opsArr, opsIndex: index)
+                operation = CalculateOperationMulDiv(&numArr, &opsArr, ops, index)
+                randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
+                mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
                 continue
             }
             index+=1
@@ -333,14 +385,16 @@ struct Math{
         
         for ops in opsArr {
             if ops == "-" || ops == "+" {
-                print(ShowSolvingStep(numArr: numArr, opsArr: opsArr))
-                CalculateOperationAddSub(&numArr, &opsArr, ops, index)
+                solvingStep = ShowSolvingStep(numArr: numArr, opsArr: opsArr, opsIndex: index)
+                operation = CalculateOperationAddSub(&numArr, &opsArr, ops, index)
+                randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
+                mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
                 continue
             }
             index+=1
         }
         
-        return numArr[0]
+        return (numArr[0], mathSolutionSteps)
     }
 
 }
