@@ -22,6 +22,7 @@
 		2BE4F6C429D3F41D00D83CDF /* MathOUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6C329D3F41D00D83CDF /* MathOUITests.swift */; };
 		2BE4F6C629D3F41D00D83CDF /* MathOUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6C529D3F41D00D83CDF /* MathOUITestsLaunchTests.swift */; };
 		2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */; };
+		A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F6E7E29DBDC7300260680 /* TutorialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		2BE4F6C329D3F41D00D83CDF /* MathOUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOUITests.swift; sourceTree = "<group>"; };
 		2BE4F6C529D3F41D00D83CDF /* MathOUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
+		A66F6E7E29DBDC7300260680 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				2B8BEC1E29D55081003722E8 /* HomeView.swift */,
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
+				A66F6E7E29DBDC7300260680 /* TutorialView.swift */,
 			);
 			path = MathO;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				2B9999B329D404E500B62347 /* OnboardingStep.swift in Sources */,
 				2B8BEC1F29D55081003722E8 /* HomeView.swift in Sources */,
 				2B9999B529D4060C00B62347 /* OnboardingView.swift in Sources */,
+				A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */,
 				2BB406A929D696EB00B78AB8 /* TestView.swift in Sources */,
 				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,
 				2B74AA3629D5711800CEE024 /* Math.swift in Sources */,
