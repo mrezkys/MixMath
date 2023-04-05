@@ -21,24 +21,7 @@ struct Math{
         self.correctAnswer = Math.CalculateMixedOperation(numArrPar: randomQuestion.number, opsArrPar: selectedPattern)
         self.answerOption = Math.GenerateAnswerOptions(numArr: randomQuestion.number, opsArr: selectedPattern, rightAnswer: self.correctAnswer)
     }
-    
-//    static func stringifyExpression(number: [Int], parenthesis: [Int]?) -> String {
-//        var expression = ""
-//
-//        for i in 0..<number.count {
-//            if i == parenthesis?.first {
-//                expression += " ( \(number[i]) /"
-//            } else if i-1 == parenthesis?.last {
-//                expression += " \(number[i]) )"
-//            } else {
-//                let operatorString = i % 2 == 1 ? " * " : i == 0 ? "" : number[i] < 0 ? " - " : " + "
-//                expression += operatorString + "\(abs(number[i]))"
-//            }
-//        }
-//
-//        return expression
-//    }
-    
+        
     static func GenerateQuestion(opsArr: [String], isParenthesis: Bool = false) -> (number: [Int], parenthesis: [Int]?) {
         var numArr = Array(repeating: 0, count: opsArr.count + 1)
         var parenthesis: [Int] = []

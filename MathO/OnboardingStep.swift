@@ -14,6 +14,6 @@ struct OnboardingStep {
 }
 
 let onBoardingSteps: [OnboardingStep] = [
-    OnboardingStep(image: "splashImage", title: "Bermain dan Belajar", description: "Belajar matematika jadi menyenangkan dengan aplikasi Math’O! Rasakan sensasi main game, dan belajar matematika sekaligus!"),
-    OnboardingStep(image: "splashImage",title: "Solusi Pengerjaan Kompleks", description: "Kami tawarkan solusi matematika yang kompleks dalam pengalaman belajar yang mudah dan menyenangkan untuk anak-anak."),
+    OnboardingStep(image: "boy-presenting-illustration", title: "Selamat datang!", description: "Sudah siap belajar mengenai operasi hitung campuran?"),
+    OnboardingStep(image: "girl-presenting-illustration",title: "Sudah belajar soal-soal di atas?", description: "Sebelum mulai belajar operasi hitung campuran, kamu perlu menguasai operasi hitung dasar."),
 ]

@@ -35,7 +35,7 @@ struct AnswerButton: View {
                 .frame(maxWidth: .infinity, maxHeight: 400)
                 .background(
                     RoundedRectangle(cornerRadius: isCircle[index] ? .infinity : 24)
-                        .fill(isCircle[index] ? Color.green : isSelected[index] ? Color.red : Color("water"))
+                        .fill(isCircle[index] ? Color("americanGreen") : isSelected[index] ? Color("fireOpal") : Color("water"))
                         .scaleEffect(isCircle[index] ? 1.0 : 1.0)
                         .animation(.easeIn(duration: 0.1))
                 )
@@ -113,14 +113,17 @@ struct QuestionPage: View {
                 Text("Finish")
             }
             
-        }))
+        })
+            .disabled(isSelected[currentPageIndex].allSatisfy({ $0 == false}))
+        )
         NavigationLink(
             destination: TestView(question: question, isCircle: isCircle, isSelected: isSelected, answerCorrectly: $answerCorrectly),
             isActive: $showSummaryView
         ) {
             EmptyView()
+                .navigationBarTitle("")
+                .navigationBarHidden(true)
         }
-        //            .disabled(currentPageIndex == question.count-1))
     }
 }
 
