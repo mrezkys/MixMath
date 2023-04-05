@@ -18,19 +18,15 @@ struct SumQuestionPage: View {
         VStack {
             var _ = print(question)
             Text(question[currentPageIndex].stringQuestion)
-                .padding(.horizontal, 10)
+                .padding(.horizontal, 24)
                 .font(.system(size: 500))
                 .lineLimit(1)
                 .minimumScaleFactor(0.01)
                 .bold()
                 .frame(maxWidth: .infinity, maxHeight: 240)
-                .background(Color("orangeColor"))
-                .cornerRadius(10)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color("orangeColor"), lineWidth: 2)
-                )
-                .padding(.horizontal, 32)
+                .background(Color("celestialBlue"))
+                .cornerRadius(24)
+                .padding([.top, .leading, .trailing], 24)
                 .foregroundColor(Color.white)
             
             Spacer()
