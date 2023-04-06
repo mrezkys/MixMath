@@ -11,81 +11,105 @@ struct OnboardingView: View {
     @State private var currentPage: Int = 0
     @State private var isOnboardingComplete = false
     
-    // MARK: - initializer for onboarding swipe not bouncing
     init() {
         UIScrollView.appearance().bounces = false
     }
     
     var body: some View {
+        
         NavigationView {
-            VStack {
-                TabView(selection: $currentPage) {
-                    ForEach(0..<onBoardingSteps.count, id: \.self) { index in
-                        VStack{
-                            // TODO: - Change illustration image & description
-                            Image(onBoardingSteps[index].image)
-                                .resizable()
-                                .scaledToFit()
-                            Text(onBoardingSteps[index].title)
-                                .bold()
-                                .padding(.bottom, 10)
-                            Text(onBoardingSteps[index].description)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 20)
-                        }
-                        .tag(index)
-                    }
-                }
-                .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+            ZStack(alignment: .top) {
+                Color("celestialBlue")
+                    .edgesIgnoringSafeArea(.bottom)
+                Rectangle()
+                    .fill(Color.white)
+                    .frame(height: 300)
                 
-                HStack {
-                    ForEach(0..<onBoardingSteps.count, id: \.self) { index in
-                        if index == currentPage {
-                            Rectangle()
-                                .frame(width: 20, height: 10)
+                VStack {
+                    TabView(selection: $currentPage) {
+                        ForEach(0..<onBoardingSteps.count, id: \.self) { index in
+                            VStack {
+                                Image(onBoardingSteps[index].image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(maxWidth: .infinity)
+                                    .ignoresSafeArea()
+                                    .background(Color.white)
+                                    .ignoresSafeArea()
+                                VStack {
+                                    Text(onBoardingSteps[index].title)
+                                        .padding(.horizontal, 32)
+                                        .font(.system(size: 28, weight: .bold, design: .rounded))
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .multilineTextAlignment(.center)
+                                        .bold()
+                                        .padding(.bottom, 4)
+                                        .foregroundColor(.white)
+                                    Text(onBoardingSteps[index].description)
+                                        .font(.system(size: 18))
+                                        .multilineTextAlignment(.center)
+                                        .lineSpacing(4)
+                                        .padding(.horizontal, 16)
+                                        .foregroundColor(.white)
+                                }
+                                .padding(.horizontal, 40)
+                                .frame(height: 160.0)
+                                
+                            }
+                            .tag(index)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                    .animation(.linear)
+                    .transition(.slide)
+                    
+                    VStack{
+                        HStack {
+                            ForEach(0..<onBoardingSteps.count, id: \.self) { index in
+                                if index == currentPage {
+                                    Rectangle()
+                                        .frame(width: 20, height: 6)
+                                        .cornerRadius(10)
+                                        .foregroundColor(Color("onboardGray"))
+                                } else {
+                                    Rectangle()
+                                        .frame(width: 10, height: 6)
+                                        .cornerRadius(10)
+                                        .foregroundColor(Color("onboardGray"))
+                                }
+                            }
+                        }
+                        .padding(.bottom, 8)
+                        
+                        Button(action:{
+                            if self.currentPage < onBoardingSteps.count - 1 {
+                                self.currentPage += 1
+                            } else {
+                                self.isOnboardingComplete = true
+                            }
+                        }) {
+                            Text(currentPage < onBoardingSteps.count - 1 ? "Saya Siap!" : "Saya Mengerti")
+                                .foregroundColor(Color("celestialBlue"))
+                                .padding(16)
+                                .frame(minWidth: 215)
+                                .background(Color.white)
                                 .cornerRadius(10)
-                                .foregroundColor(Color("orangeColor"))
-                        } else {
-                            Circle()
-                                .frame(width: 10, height: 10)
-                                .foregroundColor(.gray)
+                                .padding(.horizontal, 16)
+                        }
+                        .buttonStyle(PlainButtonStyle())
+                        
+                        NavigationLink(destination: HomeView(), isActive: $isOnboardingComplete) {
+                            EmptyView()
+                                .navigationBarTitle("")
+                                .navigationBarHidden(true)
                         }
                     }
+                    .frame(maxWidth: .infinity)
                 }
-                .padding(.bottom, 24)
-                
-                Button(action:{
-                    if self.currentPage < onBoardingSteps.count - 1 {
-                        self.currentPage += 1
-                    } else {
-                        self.isOnboardingComplete = true
-                    }
-                }) {
-                    Text(currentPage < onBoardingSteps.count - 1 ? "Next" : "Get Started")
-                        .padding(16)
-                        .frame(minWidth: 215)
-                        .background(Color.white)
-                        .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color("orangeColor"), lineWidth: 2)
-                        )
-                        .padding(.horizontal, 16)
-                        .foregroundColor(Color("orangeColor"))
-                }
-                .buttonStyle(PlainButtonStyle())
-                
-                NavigationLink(destination: HomeView(), isActive: $isOnboardingComplete) {
-                    EmptyView()
-                        .navigationBarTitle("")
-                        .navigationBarHidden(true)
-                }
-                
-                Spacer()
-                    .frame(maxHeight: 100)
             }
-            .background(Color("backgroundColor"))
         }
+        
     }
 }
 

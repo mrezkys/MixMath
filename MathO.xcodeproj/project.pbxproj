@@ -25,6 +25,7 @@
 		CB7EE06E29DD0608009D2880 /* MathPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06D29DD0608009D2880 /* MathPattern.swift */; };
 		CB7EE07029DD0F74009D2880 /* MathCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06F29DD0F74009D2880 /* MathCache.swift */; };
 		CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95073929DD2144003065B0 /* MathSolution.swift */; };
+		A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F6E7E29DBDC7300260680 /* TutorialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		CB7EE06D29DD0608009D2880 /* MathPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathPattern.swift; sourceTree = "<group>"; };
 		CB7EE06F29DD0F74009D2880 /* MathCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCache.swift; sourceTree = "<group>"; };
 		CB95073929DD2144003065B0 /* MathSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSolution.swift; sourceTree = "<group>"; };
+		A66F6E7E29DBDC7300260680 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				2B8BEC1E29D55081003722E8 /* HomeView.swift */,
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
+				A66F6E7E29DBDC7300260680 /* TutorialView.swift */,
 			);
 			path = MathO;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				2B9999B329D404E500B62347 /* OnboardingStep.swift in Sources */,
 				2B8BEC1F29D55081003722E8 /* HomeView.swift in Sources */,
 				2B9999B529D4060C00B62347 /* OnboardingView.swift in Sources */,
+				A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */,
 				2BB406A929D696EB00B78AB8 /* TestView.swift in Sources */,
 				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,
 				2B74AA3629D5711800CEE024 /* Math.swift in Sources */,
@@ -460,18 +464,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MathO/Preview Content\"";
-				DEVELOPMENT_TEAM = 5G78Q4RCCL;
+				DEVELOPMENT_TEAM = 5LSQ3C9W8U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MathO/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -479,6 +484,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vincent-Gunawan.MathO";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -490,18 +496,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MathO/Preview Content\"";
-				DEVELOPMENT_TEAM = 5G78Q4RCCL;
+				DEVELOPMENT_TEAM = 5LSQ3C9W8U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MathO/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,6 +516,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Vincent-Gunawan.MathO";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

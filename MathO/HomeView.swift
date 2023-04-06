@@ -13,10 +13,10 @@ struct HomeView: View {
         
         NavigationView {
             VStack {
-                // TODO: -Change illustration image
-                Image("splashImage")
+                Image("boy-main-illustration")
                     .resizable()
                     .scaledToFit()
+                    .padding(.all, 24)
                 
                 NavigationLink(destination: QuestionPage()) {
                     Image(systemName: "play.fill")
@@ -36,14 +36,22 @@ struct HomeView: View {
                 
                 HStack {
                     Text("Belum pernah bermain?")
-                    // TODO: - Change destination view
-                    NavigationLink(destination: OnboardingView()) {
+                    NavigationLink(destination: TutorialView()) {
                         Text("Tutorial")
                             .fontWeight(.heavy)
                             .foregroundColor(Color("celestialBlue"))
                     }
                 }
                 .padding(.top, 32)
+                
+                Spacer()
+                
+                Image("book-illustration")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 42)
+                    .offset(y: 35)
             }
         }
         .navigationBarTitle("")
