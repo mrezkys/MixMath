@@ -25,6 +25,7 @@
 		CB7EE06E29DD0608009D2880 /* MathPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06D29DD0608009D2880 /* MathPattern.swift */; };
 		CB7EE07029DD0F74009D2880 /* MathCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06F29DD0F74009D2880 /* MathCache.swift */; };
 		CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95073929DD2144003065B0 /* MathSolution.swift */; };
+		458F10D429DE63C100B5B510 /* TutorialFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F10D329DE63C100B5B510 /* TutorialFinishView.swift */; };
 		A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F6E7E29DBDC7300260680 /* TutorialView.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		CB7EE06D29DD0608009D2880 /* MathPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathPattern.swift; sourceTree = "<group>"; };
 		CB7EE06F29DD0F74009D2880 /* MathCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCache.swift; sourceTree = "<group>"; };
 		CB95073929DD2144003065B0 /* MathSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSolution.swift; sourceTree = "<group>"; };
+		458F10D329DE63C100B5B510 /* TutorialFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFinishView.swift; sourceTree = "<group>"; };
 		A66F6E7E29DBDC7300260680 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
 				A66F6E7E29DBDC7300260680 /* TutorialView.swift */,
+				458F10D329DE63C100B5B510 /* TutorialFinishView.swift */,
 			);
 			path = MathO;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				2BB406A929D696EB00B78AB8 /* TestView.swift in Sources */,
 				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,
 				2B74AA3629D5711800CEE024 /* Math.swift in Sources */,
+				458F10D429DE63C100B5B510 /* TutorialFinishView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
