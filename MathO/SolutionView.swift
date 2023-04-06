@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct SolutionView: View {
-    @State var currentStep = 0
-    
-    let steps = ["Step 1", "Step 2", "Step 3", "Step 4"]
-    
+    @State private var currentStep = 0
+    private var solution: [MathSolution]
     let ll: CGFloat
-    
-    init() {
-        self.ll = CGFloat(50 + (5-steps.count) * 30)
+    @State public var currentPageIndex: Int = 0
+    @State public var isCircle: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
+    @State public var isSelected: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
+    @State var showSummaryView: Bool = false
+    @State var answerCorrectly: [Bool?] = Array(repeating: nil, count: 4)
+               
+    init(solution: [MathSolution]) {
+        self.solution = solution
+        self.ll = CGFloat(50 + (5-solution.count) * 30)
     }
     
     var body: some View {
@@ -23,22 +27,28 @@ struct SolutionView: View {
         ZStack {
             Color("SoftOrange")
             VStack {
+                HStack{
+                    ForEach(0..<solution[currentStep].solvingStep.count, id: \.self) { solvingStepIndex in
+                        Text(solution[currentStep].solvingStep[solvingStepIndex])
+                            .font(.system(size: 32, design: .rounded))
+                            .bold()
+                            .opacity(solvingStepIndex == 1 ? 1 : 0.5)
+                    }
+                }
                 
-                Text("1 + 6 x 3 - 1")
-                    .font(.system(size: 32, design: .rounded))
-                    .bold()
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .frame(width: 335, height: 84)
-                            .foregroundColor(Color.white)
-                            .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.black, lineWidth: 3)
-                            )
-                    )
-                    .padding(24)
+                    
+//                    .background(
+//                        RoundedRectangle(cornerRadius: 10)
+//                            .frame(width: 335, height: 84)
+//                            .foregroundColor(Color.white)
+//                            .overlay(
+//                                    RoundedRectangle(cornerRadius: 10)
+//                                        .stroke(Color.black, lineWidth: 3)
+//                            )
+//                    )
+//                    .padding(24)
                 
-                CustomIndicator(numberOfStep: steps.count, lengthLine: CGFloat(ll), currentStep: $currentStep)
+                CustomIndicator(numberOfStep: solution.count, lengthLine: CGFloat(ll), currentStep: $currentStep)
                     .padding(24)
                 
                 
@@ -46,7 +56,7 @@ struct SolutionView: View {
                     Text("Kamu perlu menjawab pertanyaan ini")
                         .font(.system(size: 16, design: .rounded))
                         .bold()
-                    Text("6 x 3")
+                    Text(solution[currentStep].operationStep)
                         .font(.system(size: 48, design: .rounded))
                         .bold()
                         .padding(.top, 1)
@@ -56,60 +66,27 @@ struct SolutionView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(Color("celestialBlue"))
                 )
-                .padding([.leading, .bottom, .trailing], 12)
+                .padding([.leading, .bottom, .trailing], 32)
                 
                 
                 VStack (spacing: 16) {
                     HStack (spacing: 16) {
-                        Text("15")
-                            .font(.system(size: 32, design: .rounded))
-                            .bold()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 163, height: 163)
-                                    .foregroundColor(Color.blue)
-                            )
-                            .padding(64)
+                        AnswerButton(generatedNumber: solution[currentStep].answerOptions[0], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 0, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
                             
-                        Text("16")
-                            .font(.system(size: 32, design: .rounded))
-                            .bold()
-                            .background(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 163, height: 163)
-                                    .foregroundColor(Color.blue)
-                            )
-                            .padding(64)
+                        AnswerButton(generatedNumber: solution[currentStep].answerOptions[1], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 1, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
                     }
-                    .padding(.bottom, 8)
+                    .padding(.horizontal, 32)
                 }
                 
                 HStack (spacing: 16){
                     
-                    Text("17")
-                        .font(.system(size: 32, design: .rounded))
-                        .bold()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 163, height: 163)
-                                .foregroundColor(Color.blue)
-                        )
-                        .padding(64)
-                    
-                    
-                    Text("18")
-                        .font(.system(size: 32, design: .rounded))
-                        .bold()
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .frame(width: 163, height: 163)
-                                .foregroundColor(Color.blue)
-                        )
-                        .padding(64)
+                    AnswerButton(generatedNumber: solution[currentStep].answerOptions[2], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 2, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
+                        
+                    AnswerButton(generatedNumber: solution[currentStep].answerOptions[3], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 3, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
                 }
-                Spacer()
+                .padding(.horizontal, 32)
                     
             }
             .padding(10)
@@ -119,7 +96,7 @@ struct SolutionView: View {
 
 struct SolutionView_Previews: PreviewProvider {
     static var previews: some View {
-        SolutionView()
+        SolutionView(solution: Math().solution)
     }
 }
 
@@ -157,5 +134,3 @@ struct CustomIndicator: View {
         }
     }
 }
-
-
