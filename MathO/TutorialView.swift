@@ -19,7 +19,7 @@ struct TutorialView: View {
     @State public var isCircle: [Bool] =  [false, false, false, false]
     @State public var isSelected: [Bool] = [false, false, false, false]
     @State var showSummaryView: Bool = false
-    @State var answerCorrectly: [Bool] = []
+    @State var answerCorrectly: [Bool?] = []
     
     
     
@@ -56,16 +56,16 @@ struct TutorialView: View {
             VStack(spacing: 16) {
                 HStack(spacing: 16) {
                     AnswerButton(
-                        generatedNumber: choices[0], isCircle: $isCircle, isSelected: $isSelected, index: 0, correctAnswer: answer, answerCorrectly: $answerCorrectly)
+                        generatedNumber: choices[0], isCircle: $isCircle, isSelected: $isSelected, index: 0, correctAnswer: answer, answerCorrectly: $answerCorrectly, currentPageIndex: -1)
                     
-                    AnswerButton(generatedNumber: choices[1], isCircle: $isCircle, isSelected: $isSelected, index: 1, correctAnswer: answer, answerCorrectly: $answerCorrectly)
+                    AnswerButton(generatedNumber: choices[1], isCircle: $isCircle, isSelected: $isSelected, index: 1, correctAnswer: answer, answerCorrectly: $answerCorrectly, currentPageIndex: -1)
                 }
                 .padding(.horizontal, 32)
                 
                 HStack(spacing: 16) {
-                    AnswerButton(generatedNumber: choices[2], isCircle: $isCircle, isSelected: $isSelected, index: 2, correctAnswer: answer, answerCorrectly: $answerCorrectly)
+                    AnswerButton(generatedNumber: choices[2], isCircle: $isCircle, isSelected: $isSelected, index: 2, correctAnswer: answer, answerCorrectly: $answerCorrectly, currentPageIndex: -1)
                     
-                    AnswerButton(generatedNumber: choices[3], isCircle: $isCircle, isSelected: $isSelected, index: 3, correctAnswer: answer, answerCorrectly: $answerCorrectly)
+                    AnswerButton(generatedNumber: choices[3], isCircle: $isCircle, isSelected: $isSelected, index: 3, correctAnswer: answer, answerCorrectly: $answerCorrectly, currentPageIndex: -1)
                 }
                 .padding(.horizontal, 32)
             }
