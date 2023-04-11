@@ -19,7 +19,7 @@ struct AnswerButton: View {
     var body: some View {
         Button {
             withAnimation {
-                if correctAnswer == generatedNumber {
+                if correctAnswer == index {
                     isCircle[index].toggle()
                     isSelected[index].toggle()
                     if(currentPageIndex != -1){
@@ -121,16 +121,16 @@ struct QuestionPage: View {
                 
                 VStack(spacing: 16) {
                     HStack(spacing: 16) {
-                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                         
-                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                     }
                     .padding(.horizontal, 32)
                     
                     HStack(spacing: 16) {
-                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                         
-                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                        AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                     }
                     .padding(.horizontal, 32)
                 }
