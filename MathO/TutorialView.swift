@@ -10,11 +10,12 @@ import SwiftUI
 
 struct TutorialView: View {
     var displayText = "Jawablah pertanyaan yang muncul di sini dengan jawaban yang tersedia di bawah"
-    @State  var showDisplayText : Bool = true
+    @State private var showDisplayText : Bool = true
+    @State private var isFinishTutorial: Bool = false
     
     var questionX: String = "1 + 3 x 2"
     var choices: [Int] = [7, 8, 12, 18]
-    var answer: Int = 7
+    var answer: Int = 0
     
     @State public var isCircle: [Bool] =  [false, false, false, false]
     @State public var isSelected: [Bool] = [false, false, false, false]
@@ -85,17 +86,22 @@ struct TutorialView: View {
             trailing:
                 Button(
                     action: {
-                        // go to homepage
+                        isFinishTutorial.toggle()
                     },
                     label: {
                         Text("Finish")
                     }
                 )
+                .disabled(isSelected.allSatisfy({ $0 == false}))
         ).onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0){
                 self.showDisplayText = false
                 
             }
+        }
+        
+        NavigationLink(destination: TutorialFinishView(), isActive: $isFinishTutorial) {
+            EmptyView()
         }
         
         

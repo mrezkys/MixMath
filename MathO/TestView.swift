@@ -20,8 +20,6 @@ struct TestView: View {
     }
     
     var body: some View {
-        var _ = print("Pindah Page bro")
-        var _ = print(question)
         ZStack(alignment: .bottom) {
             VStack {
                 Circle()
@@ -136,37 +134,37 @@ struct TestView: View {
                 }
             }
         }
-}
-
-func summaryHeadline() -> String {
-    if correctCount == 12 {
-        return "Sangat Baik"
-    } else if correctCount >= 10 {
-        return "Cukup Baik"
-    } else {
-        return "Kurang Baik"
     }
-}
-
-func summarySubheadline() -> String {
-    if correctCount == 12 {
-        return "Selamat! Pertahankan cara berlatihmu."
-    } else if correctCount >= 10 {
-        return "Akan lebih baik jika kamu terus berlatih."
-    } else {
-        return "Kamu perlu berlatih lagi, semangat!"
+    
+    func summaryHeadline() -> String {
+        if correctCount == 12 {
+            return "Sangat Baik"
+        } else if correctCount >= 10 {
+            return "Cukup Baik"
+        } else {
+            return "Kurang Baik"
+        }
     }
-}
-
-func pickSummaryAvatar() -> String {
-    if correctCount == 12 {
-        return "girl-wow-illlustration"
-    } else if correctCount >= 10 {
-        return "girl-smile-illlustration"
-    } else {
-        return "girl-tongue-illlustration"
+    
+    func summarySubheadline() -> String {
+        if correctCount == 12 {
+            return "Selamat! Pertahankan cara berlatihmu."
+        } else if correctCount >= 10 {
+            return "Akan lebih baik jika kamu terus berlatih."
+        } else {
+            return "Kamu perlu berlatih lagi, semangat!"
+        }
     }
-}
+    
+    func pickSummaryAvatar() -> String {
+        if correctCount == 12 {
+            return "girl-wow-illlustration"
+        } else if correctCount >= 10 {
+            return "girl-smile-illlustration"
+        } else {
+            return "girl-tongue-illlustration"
+        }
+    }
 }
 
 struct TestView_Previews: PreviewProvider {

@@ -44,13 +44,19 @@ struct TutorialFinishView: View {
                     .padding(.horizontal, 33)
                     .ignoresSafeArea()
                     .offset(y: 35)
-                
-                
-                //            Spacer()
-                
+            }
+            .navigationBarTitle("")
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        HomeView()
+                    } label: {
+                        Text("Selesai")
+                    }
+                }
             }
         }
-        //        .padding()
     }
 }
 
