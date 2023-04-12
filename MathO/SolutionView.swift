@@ -16,7 +16,10 @@ struct SolutionView: View {
     @State public var isSelected: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
     @State var showSummaryView: Bool = false
     @State var answerCorrectly: [Bool?] = Array(repeating: nil, count: 4)
-               
+    @State private var isShowingTriangle: Bool = false
+    @State private var isFinishSolution: Bool = false
+    
+    
     init(solution: [MathSolution]) {
         self.solution = solution
         self.ll = CGFloat(50 + (5-solution.count) * 30)
@@ -36,21 +39,20 @@ struct SolutionView: View {
                     }
                 }
                 
-                    
-//                    .background(
-//                        RoundedRectangle(cornerRadius: 10)
-//                            .frame(width: 335, height: 84)
-//                            .foregroundColor(Color.white)
-//                            .overlay(
-//                                    RoundedRectangle(cornerRadius: 10)
-//                                        .stroke(Color.black, lineWidth: 3)
-//                            )
-//                    )
-//                    .padding(24)
+                
+                //                    .background(
+                //                        RoundedRectangle(cornerRadius: 10)
+                //                            .frame(width: 335, height: 84)
+                //                            .foregroundColor(Color.white)
+                //                            .overlay(
+                //                                    RoundedRectangle(cornerRadius: 10)
+                //                                        .stroke(Color.black, lineWidth: 3)
+                //                            )
+                //                    )
+                //                    .padding(24)
                 
                 CustomIndicator(numberOfStep: solution.count, lengthLine: CGFloat(ll), currentStep: $currentStep)
                     .padding(24)
-                
                 
                 VStack {
                     Text("Kamu perlu menjawab pertanyaan ini")
@@ -70,29 +72,71 @@ struct SolutionView: View {
                 )
                 .padding([.leading, .bottom, .trailing], 32)
                 
-                
-                VStack (spacing: 16) {
-                    HStack (spacing: 16) {
-                        AnswerButton(generatedNumber: solution[currentStep].answerOptions[0], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 0, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
+                if !isShowingTriangle {
+                    VStack (spacing: 16) {
+                        HStack (spacing: 16) {
+                            AnswerButton(generatedNumber: solution[currentStep].answerOptions[0], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 0, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
                             
-                        AnswerButton(generatedNumber: solution[currentStep].answerOptions[1], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 1, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
+                            AnswerButton(generatedNumber: solution[currentStep].answerOptions[1], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 1, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
+                        }
+                        .padding(.horizontal, 32)
+                        
+                        HStack (spacing: 16){
+                            AnswerButton(generatedNumber: solution[currentStep].answerOptions[2], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 2, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
+                            
+                            AnswerButton(generatedNumber: solution[currentStep].answerOptions[3], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 3, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
+                        }
+                        .padding(.horizontal, 32)
                     }
-                    .padding(.horizontal, 32)
+                    .onChange(of: isSelected[currentStep]) { newValue in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                            isShowingTriangle = true
+                        }
+                    }
+                } else {
+                    SegitigaAjaibView()
+                        .onChange(of: currentStep) { newValue in
+                            isShowingTriangle = false
+                        }
                 }
                 
-                HStack (spacing: 16){
-                    
-                    AnswerButton(generatedNumber: solution[currentStep].answerOptions[2], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 2, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
-                        
-                    AnswerButton(generatedNumber: solution[currentStep].answerOptions[3], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 3, correctAnswer: solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
-                }
-                .padding(.horizontal, 32)
-                    
             }
             .padding(10)
+            .navigationBarItems(trailing: Button(action: {
+                isFinishSolution.toggle()
+            }, label: {
+                Text("Mengerti")
+            })
+                .disabled(currentStep != solution.count-1)
+            )
+            
+            NavigationLink(destination: WrapUpView(), isActive: $isFinishSolution) {
+                EmptyView()
+            }
         }
     }
 }
+
+
+
+func segitigaAjaib(operation: String) -> String {
+    let ops = operation.components(separatedBy: " ")[1]
+    
+    switch ops {
+    case "x":
+        return "segitiga-ajaib-multi"
+    case ":":
+        return "segitiga-ajaib-diff"
+    case "+":
+        return "segitiga-ajaib-plus"
+    case "-":
+        return "segitiga-ajaib-min"
+    default:
+        return "segitiga-ajaib-diff"
+    }
+}
+
+
 
 struct SolutionView_Previews: PreviewProvider {
     static var previews: some View {
@@ -121,7 +165,7 @@ struct CustomIndicator: View {
                                 .opacity(index <= currentStep ? 1 : 0)
                         )
                 }
-
+                
                 
                 if index != numberOfStep - 1 {
                     Rectangle()
