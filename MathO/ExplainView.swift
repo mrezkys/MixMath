@@ -7,6 +7,28 @@
 
 import SwiftUI
 
+struct SegitigaAjaibView: View {
+    var body: some View {
+        VStack {
+            Text("Segitiga Ajaib")
+                .font(.system(size: 18, design: .rounded))
+                .bold()
+            Image("segitiga-ajaib-diff")
+                .resizable()
+                .frame(width: 228, height: 228)
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+                .font(.system(size: 14, design: .rounded))
+        }
+        .padding(40)
+        .frame(maxWidth: .infinity)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(Color("celestialBlue"))
+        )
+        .padding(.horizontal, 32)
+    }
+}
+
 struct ExplainView: View {
     @State var currentStep = 0
     
@@ -21,7 +43,6 @@ struct ExplainView: View {
     var body: some View {
         
         ZStack {
-            Color("dandelion")
             
             Spacer()
             
@@ -59,28 +80,12 @@ struct ExplainView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(Color("celestialBlue"))
                 )
                 .padding([.leading, .bottom, .trailing], 24)
                 
+                SegitigaAjaibView()
                 
-                VStack {
-                    Text("Segitiga Ajaib")
-                        .font(.system(size: 18, design: .rounded))
-                        .bold()
-                    Image("SegitigaAjaib")
-                        .resizable()
-                        .frame(width: 228, height: 228)
-                    Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
-                        .font(.system(size: 14, design: .rounded))
-                }
-                .padding(40)
-                .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.orange)
-                )
-                .padding(.horizontal, 24)
                 
             }
         }

@@ -27,7 +27,7 @@ struct WrapUpView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(Color("celestialBlue"))
                 )
                 .padding([.leading, .bottom, .trailing], 12)
                 
@@ -45,7 +45,7 @@ struct WrapUpView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(Color("celestialBlue"))
                 )
                 .padding([.leading, .bottom, .trailing], 12)
                 
@@ -63,7 +63,7 @@ struct WrapUpView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(Color("celestialBlue"))
                 )
                 .padding([.leading, .bottom, .trailing], 12)
                 
@@ -81,7 +81,7 @@ struct WrapUpView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(Color.orange)
+                        .foregroundColor(Color("celestialBlue"))
                 )
                 .padding([.leading, .bottom, .trailing], 12)
                 
