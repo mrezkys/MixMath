@@ -144,7 +144,7 @@ struct QuestionPage: View {
                         Text("Bantuan")
                     }
                     
-                    NavigationLink(destination: SolutionView(solution: question[currentPageIndex].solution), isActive: $isNeedHelp) {
+                    NavigationLink(destination: SolutionView(question: question[currentPageIndex]), isActive: $isNeedHelp) {
                         EmptyView()
                     }
 
