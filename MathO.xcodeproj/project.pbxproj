@@ -28,6 +28,11 @@
 		CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB95073929DD2144003065B0 /* MathSolution.swift */; };
 		CBA6422229E5027E006006AA /* PatternViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6422129E5027E006006AA /* PatternViewModel.swift */; };
 		CBF7975429E6724B00E362A1 /* TabularRegressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF7975329E6724B00E362A1 /* TabularRegressor.swift */; };
+		458F10D429DE63C100B5B510 /* TutorialFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F10D329DE63C100B5B510 /* TutorialFinishView.swift */; };
+		742B1BB329DBEF340049E8EE /* SolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B1BB229DBEF340049E8EE /* SolutionView.swift */; };
+		742B1BB529DD0F370049E8EE /* ExplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B1BB429DD0F370049E8EE /* ExplainView.swift */; };
+		74846C0C29DDD1FD00530195 /* WrapUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74846C0B29DDD1FD00530195 /* WrapUpView.swift */; };
+		CB7EE07029DD0F74009D2880 /* MathCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06F29DD0F74009D2880 /* MathCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +80,11 @@
 		CB95073929DD2144003065B0 /* MathSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathSolution.swift; sourceTree = "<group>"; };
 		CBA6422129E5027E006006AA /* PatternViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternViewModel.swift; sourceTree = "<group>"; };
 		CBF7975329E6724B00E362A1 /* TabularRegressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabularRegressor.swift; sourceTree = "<group>"; };
+		458F10D329DE63C100B5B510 /* TutorialFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFinishView.swift; sourceTree = "<group>"; };
+		742B1BB229DBEF340049E8EE /* SolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolutionView.swift; sourceTree = "<group>"; };
+		742B1BB429DD0F370049E8EE /* ExplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainView.swift; sourceTree = "<group>"; };
+		74846C0B29DDD1FD00530195 /* WrapUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapUpView.swift; sourceTree = "<group>"; };		
+		CB7EE06F29DD0F74009D2880 /* MathCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +147,13 @@
 				2B74AA3329D569BC00CEE024 /* QuestionPage.swift */,
 				2BB406A829D696EB00B78AB8 /* TestView.swift */,
 				2B8BEC1E29D55081003722E8 /* HomeView.swift */,
+				742B1BB229DBEF340049E8EE /* SolutionView.swift */,
+				742B1BB429DD0F370049E8EE /* ExplainView.swift */,
+				74846C0B29DDD1FD00530195 /* WrapUpView.swift */,
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
 				A66F6E7E29DBDC7300260680 /* TutorialView.swift */,
+				458F10D329DE63C100B5B510 /* TutorialFinishView.swift */,
 			);
 			path = MathO;
 			sourceTree = "<group>";
@@ -321,6 +335,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				742B1BB529DD0F370049E8EE /* ExplainView.swift in Sources */,
 				2BE4F6AB29D3F41C00D83CDF /* ContentView.swift in Sources */,
 				2B74AA3429D569BC00CEE024 /* QuestionPage.swift in Sources */,
 				2B8BD96529D8792F00AEA9E2 /* SumQuestionPage.swift in Sources */,
@@ -331,12 +346,15 @@
 				2B9999B329D404E500B62347 /* OnboardingStep.swift in Sources */,
 				CBF7975429E6724B00E362A1 /* TabularRegressor.swift in Sources */,
 				2B8BEC1F29D55081003722E8 /* HomeView.swift in Sources */,
+				742B1BB329DBEF340049E8EE /* SolutionView.swift in Sources */,
 				2B9999B529D4060C00B62347 /* OnboardingView.swift in Sources */,
 				A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */,
 				2BB406A929D696EB00B78AB8 /* TestView.swift in Sources */,
 				CBA6422229E5027E006006AA /* PatternViewModel.swift in Sources */,
+				74846C0C29DDD1FD00530195 /* WrapUpView.swift in Sources */,
 				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,
 				2B74AA3629D5711800CEE024 /* Math.swift in Sources */,
+				458F10D429DE63C100B5B510 /* TutorialFinishView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,7 +514,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MathO/Preview Content\"";
-				DEVELOPMENT_TEAM = BS6K64RQ23;
+				DEVELOPMENT_TEAM = 5G78Q4RCCL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MathO/Info.plist;
@@ -530,7 +548,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MathO/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 5G78Q4RCCL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MathO/Info.plist;
