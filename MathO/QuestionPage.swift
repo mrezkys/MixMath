@@ -83,7 +83,7 @@ struct AnswerProgressBar: View {
         self.answerCorrectly = answerCorrectly
         self.questionCount = questionCount
         
-        self.barLength  = screenWidth/CGFloat(questionCount)
+        self.barLength  = screenWidth/CGFloat(questionCount) - 8
     }
     var body: some View{
         HStack(spacing: 0){
@@ -92,6 +92,7 @@ struct AnswerProgressBar: View {
                     .foregroundColor(getBarColor(index: i))
                     .frame(width: barLength, height: 8)
                     .padding(0)
+                    .padding(.horizontal, 4)
                 //                    var _ = print(i, " : ", getBarColor(index: i))
                 
             }
@@ -169,16 +170,16 @@ struct QuestionPage: View {
                     
                     VStack(spacing: 16) {
                         HStack(spacing: 16) {
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[0], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 0, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                             
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[1], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 1, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                         }
                         .padding(.horizontal, 32)
                         
                         HStack(spacing: 16) {
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[2], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 2, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                             
-                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].correctAnswer, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
+                            AnswerButton(generatedNumber: question[currentPageIndex].answerOption.answerOptions[3], isCircle: $isCircle[currentPageIndex], isSelected: $isSelected[currentPageIndex], pattern: selectedPatterns[currentPageIndex], index: 3, correctAnswer: question[currentPageIndex].answerOption.rightAnswerIndex!, answerCorrectly: $answerCorrectly, currentPageIndex: currentPageIndex)
                         }
                         .padding(.horizontal, 32)
                     }

@@ -36,8 +36,8 @@
         
         if isParenthesis {
             while(true){
-                var parenthesisWrap = Int.random(in: 1..<opsArr.count)
-                var parenthesisOps = Int.random(in: 0..<opsArr.count-parenthesisWrap)
+                var parenthesisWrap = Int.random(in: 1..<3)
+                var parenthesisOps = Int.random(in: 0..<3-parenthesisWrap)
                 while (parenthesisWrap > 0) {
                     parenthesis.append(parenthesisOps)
                     parenthesisOps+=1
@@ -232,6 +232,7 @@
         default: return (operation, result)
         }
     }
+    
     static func CalculateOperationAddSub(_ numArr: inout [Int],_ opsArr: inout [String],_ ops: String,_ index: Int) -> (show: String, result: Int) {
         let tempN1 = numArr.remove(at: index)
         let tempN2 = numArr.remove(at: index)
@@ -254,6 +255,7 @@
         default: return (operation, result)
         }
     }
+    
     static func ShowSolvingStep(numArr: [Int], opsArr: [String], opsIndex: Int, parenthesis: [Int]? = nil) -> [String] {
         var Operation = ""
         var index = 0
@@ -315,7 +317,7 @@
                     RemoveParenthesisElement(&parenthesis, index)
                     operation = CalculateOperationMulDiv(&numArr, &opsArr, ops, index)
                     randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
-                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
+                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!, isParenthesis: true))
                     continue
                 }
                 index+=1
@@ -329,7 +331,7 @@
                     RemoveParenthesisElement(&parenthesis, index)
                     operation = CalculateOperationAddSub(&numArr, &opsArr, ops, index)
                     randomAnswer = GenerateAnswerOptions(rightAnswer: operation.result)
-                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!))
+                    mathSolutionSteps.append(MathSolution(solvingStep: solvingStep, operationStep: operation.show, answerOptions: randomAnswer.answerOptions, rightAnswerIndex: randomAnswer.rightAnswerIndex!, isParenthesis: true))
                     continue
                 }
                 index+=1

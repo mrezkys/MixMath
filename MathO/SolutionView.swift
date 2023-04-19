@@ -104,7 +104,7 @@ struct SolutionView: View {
                             }
                         } else {
                             SegitigaAjaibView(
-                                imagePath: segitigaAjaib(operation: question.solution[currentStep].operationStep), descPath: teksAjaib(operation: question.solution[currentStep].operationStep))
+                                imagePath: segitigaAjaib(operation: question.solution[currentStep].operationStep, isParenthesis: question.solution[currentStep].isParenthtesis), descPath: teksAjaib(operation: question.solution[currentStep].operationStep, isParenthtesis: question.solution[currentStep].isParenthtesis))
                                 .onChange(of: currentStep) { newValue in
                                     isShowingTriangle = false
                                 }
@@ -143,9 +143,13 @@ struct SegitigaAjaibView: View {
             Image(imagePath)
                 .resizable()
                 .frame(width: 228, height: 228)
-            Text(descPath)
-                .font(.system(size: 14, design: .rounded))
-                .foregroundColor(.black)
+            
+                Text(descPath)
+                    .font(.system(size: 14, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.black)
+           
+            
         }
         .padding(40)
         .frame(maxWidth: .infinity)
@@ -158,8 +162,13 @@ struct SegitigaAjaibView: View {
 }
 
 
-func teksAjaib(operation: String) -> String {
+func teksAjaib(operation: String, isParenthtesis: Bool) -> String {
     let ops = operation.components(separatedBy: " ")[1]
+    var parenthesis = "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa operasi yang berada pada tanda buka kurung dan tutup kurung adalah operasi yang harus didahulukan dalam operasi campuran matematika. Untuk menyelesaikan perhitungan di dalam tanda buka kurung dan tutup kurung, kita melihat kembali di segitiga ajaib bahwa yang pertama harus dikerjakan adalah perkalian dan pembagian, kemudian dilanjutkan dengan penjumlahan dan pengurangan"
+    
+    if isParenthtesis {
+        return parenthesis
+    }
     switch ops {
     case "x":
         return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa perkalian merupakan operasi kedua yang harus didahulukan dalam operasi campuran matematika."
@@ -174,8 +183,22 @@ func teksAjaib(operation: String) -> String {
     }
 }
 
-func segitigaAjaib(operation: String) -> String {
+func segitigaAjaib(operation: String, isParenthesis: Bool) -> String {
     let ops = operation.components(separatedBy: " ")[1]
+    if isParenthesis {
+        switch ops {
+        case "x":
+            return "segitiga-ajaib-multi-parenthe"
+        case ":":
+            return "segitiga-ajaib-diff-parenthe"
+        case "+":
+            return "segitiga-ajaib-plus-parenthe"
+        case "-":
+            return "segitiga-ajaib-min-parenthe"
+        default:
+            return "segitiga-ajaib-diff-parenthe"
+        }
+    }
     switch ops {
     case "x":
         return "segitiga-ajaib-multi"
