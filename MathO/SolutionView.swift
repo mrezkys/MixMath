@@ -98,13 +98,13 @@ struct SolutionView: View {
                                 .padding(.horizontal, 32)
                             }
                             .onChange(of: isSelected[currentStep]) { newValue in
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     isShowingTriangle = true
                                 }
                             }
                         } else {
                             SegitigaAjaibView(
-                            imagePath: segitigaAjaib(operation: question.solution[currentStep].operationStep))
+                                imagePath: segitigaAjaib(operation: question.solution[currentStep].operationStep), descPath: teksAjaib(operation: question.solution[currentStep].operationStep))
                                 .onChange(of: currentStep) { newValue in
                                     isShowingTriangle = false
                                 }
@@ -132,6 +132,7 @@ struct SolutionView: View {
 
 struct SegitigaAjaibView: View {
     var imagePath: String
+    let descPath: String
     
     var body: some View {
         VStack {
@@ -142,7 +143,7 @@ struct SegitigaAjaibView: View {
             Image(imagePath)
                 .resizable()
                 .frame(width: 228, height: 228)
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+            Text(descPath)
                 .font(.system(size: 14, design: .rounded))
                 .foregroundColor(.black)
         }
@@ -156,6 +157,22 @@ struct SegitigaAjaibView: View {
     }
 }
 
+
+func teksAjaib(operation: String) -> String {
+    let ops = operation.components(separatedBy: " ")[1]
+    switch ops {
+    case "x":
+        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa perkalian merupakan operasi kedua yang harus didahulukan dalam operasi campuran matematika."
+    case ":":
+        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pembagian merupakan operasi ketiga yang harus didahulukan dalam operasi campuran matematika."
+    case "+":
+        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa penjumlahan merupakan operasi keempat yang harus didahulukan dalam operasi campuran matematika."
+    case "-":
+        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pengurangan merupakan operasi kelima yang harus didahulukan dalam operasi campuran matematika."
+    default:
+        return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa parenthesis merupakan operasi pertama yang harus didahulukan dalam operasi campuran matematika."
+    }
+}
 
 func segitigaAjaib(operation: String) -> String {
     let ops = operation.components(separatedBy: " ")[1]
