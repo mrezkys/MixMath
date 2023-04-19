@@ -18,6 +18,10 @@ struct SolutionView: View {
     @State var answerCorrectly: [Bool?] = Array(repeating: nil, count: 4)
     @State private var isShowingTriangle: Bool = false
     @State private var isFinishSolution: Bool = false
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
+    @State var isSolutionFinished: Bool = false
+
     
     
     init(question: Math) {
@@ -50,11 +54,23 @@ struct SolutionView: View {
                                 .font(.system(size: 16, design: .rounded))
                                 .foregroundColor(.white)
                                 .bold()
-                            Text(question.solution[currentStep].operationStep)
-                                .font(.system(size: 48, design: .rounded))
-                                .foregroundColor(.white)
-                                .bold()
-                                .padding(.top, 1)
+                            if(!isShowingTriangle) {
+                                Text("\(question.solution[currentStep].operationStep)"
+                                )
+                                    .font(.system(size: 48, design: .rounded))
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .padding(.top, 1)
+                            } else {
+                                Text("\(question.solution[currentStep].operationStep) = \(question.solution[currentStep].answerOptions[question.solution[currentStep].rightAnswerIndex])"
+                                )
+                                    .font(.system(size: 48, design: .rounded))
+                                    .foregroundColor(.white)
+                                    .bold()
+                                    .padding(.top, 1)
+                            }
+                            
+                            
                         }
                         .padding(.horizontal, 8)
                         .padding(.vertical, 24)
@@ -87,23 +103,58 @@ struct SolutionView: View {
                                 }
                             }
                         } else {
-                            SegitigaAjaibView()
+                            SegitigaAjaibView(
+                            imagePath: segitigaAjaib(operation: question.solution[currentStep].operationStep))
                                 .onChange(of: currentStep) { newValue in
                                     isShowingTriangle = false
                                 }
                         }
                     } else {
                         WrapUpView(
-                            question: question
-                        )
+                            isFinished: $isSolutionFinished, question: question
+                        ).onChange(of: isSolutionFinished){_ in
+                            if(isSolutionFinished == true){
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        }
                     }
                     
                 }.padding(.vertical, 16)
-            }
+            }.safeAreaInset(edge: .top, content: {
+                Color.clear
+                . frame (height: 0)
+                .background (.bar)
+                .border(.black)
+                })
         }.navigationBarBackButtonHidden(true)
     }
 }
 
+struct SegitigaAjaibView: View {
+    var imagePath: String
+    
+    var body: some View {
+        VStack {
+            Text("Segitiga Ajaib")
+                .font(.system(size: 18, design: .rounded))
+                .bold()
+            
+            Image(imagePath)
+                .resizable()
+                .frame(width: 228, height: 228)
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+                .font(.system(size: 14, design: .rounded))
+                .foregroundColor(.black)
+        }
+        .padding(40)
+        .frame(maxWidth: .infinity)
+        .background(
+            RoundedRectangle(cornerRadius: 10)
+                .foregroundColor(Color("water"))
+        )
+        .padding(.horizontal, 32)
+    }
+}
 
 
 func segitigaAjaib(operation: String) -> String {
