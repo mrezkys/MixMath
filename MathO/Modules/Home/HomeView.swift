@@ -8,29 +8,24 @@
 import SwiftUI
 
 struct HomeView: View {
-    
     var body: some View {
-        
         NavigationView {
-            VStack {
+            VStack (spacing: 16){
                 Image("boy-main-illustration")
                     .resizable()
                     .scaledToFit()
-                    .padding(.all, 24)
+                    .frame(height: UIScreen.main.bounds.height * 0.5)
+                    .padding(.top, 16)
                 
                 NavigationLink(destination: QuestionPage()) {
                     Image(systemName: "play.fill")
+                        .foregroundColor(Color.white)
                         .font(.largeTitle)
-                        .padding(32)
+                        .padding(.vertical, 32)
                         .frame(maxWidth: .infinity)
                         .background(Color("celestialBlue"))
                         .cornerRadius(10)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 10)
-                                .stroke(Color("celestialBlue"), lineWidth: 2)
-                        )
                         .padding(.horizontal, 32)
-                        .foregroundColor(Color.white)
                 }
                 .buttonStyle(PlainButtonStyle())
                 
@@ -50,8 +45,7 @@ struct HomeView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 42)
-                    .offset(y: 35)
+                    .padding(.horizontal, 24)
             }
         }
         .navigationBarTitle("")
