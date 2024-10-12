@@ -20,10 +20,9 @@ struct SumQuestionPage: View {
             
             Text(question[currentPageIndex].stringQuestion)
                 .padding(.horizontal, 24)
-                .font(.system(size: 500))
+                .font(.system(size: 500, weight: .bold))
                 .lineLimit(1)
                 .minimumScaleFactor(0.01)
-                .bold()
                 .frame(maxWidth: .infinity, maxHeight: 240)
                 .background(Color("celestialBlue"))
                 .cornerRadius(24)

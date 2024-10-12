@@ -120,12 +120,15 @@ struct SolutionView: View {
                     }
                     
                 }.padding(.vertical, 16)
-            }.safeAreaInset(edge: .top, content: {
-                Color.clear
-                . frame (height: 0)
-                .background (.bar)
-                .border(.black)
-                })
+            }
+            .background(
+                GeometryReader { geometry in
+                    Color.clear
+                        .frame(height: geometry.safeAreaInsets.top)
+                        .background(Color.clear)
+                        .edgesIgnoringSafeArea(.top)
+                }
+            )
         }.navigationBarBackButtonHidden(true)
     }
 }

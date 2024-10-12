@@ -30,9 +30,8 @@ struct TutorialView: View {
             {
                 Text(displayText)
                     .padding(.horizontal, 32)
-                    .font(.system(size: 24))
+                    .font(.system(size: 24, weight: .bold))
                     .multilineTextAlignment(.center)
-                    .bold()
                     .frame(maxWidth: .infinity, maxHeight: 240)
                     .background(Color("celestialBlue"))
                     .cornerRadius(24)
@@ -42,10 +41,9 @@ struct TutorialView: View {
             else {
                 Text(questionX)
                     .padding(.horizontal, 32)
-                    .font(.system(size: 500))
+                    .font(.system(size: 500, weight: .bold))
                     .lineLimit(1)
                     .minimumScaleFactor(0.01)
-                    .bold()
                     .frame(maxWidth: .infinity, maxHeight: 240)
                     .background(Color("celestialBlue"))
                     .cornerRadius(24)

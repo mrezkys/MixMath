@@ -23,18 +23,15 @@ struct TutorialFinishView: View {
                 Spacer().frame(height:262)
                 Text("Kamu Keren!")
                     .multilineTextAlignment(.center)
-                    .font(.custom("", size: 32))
-                    .fontWeight(.heavy)
+                    .font(.system(size: 32, weight: .heavy, design: .rounded))
                     .foregroundColor(Color("forestGreen"))
-                    .fontDesign(.rounded)
                 
                 Spacer().frame(height: 14)
                 Text("Kamu sudah paham cara bermain aplikasi ini. Mari kita mulai belajar operasi hitung campuran.")
                     .multilineTextAlignment(.center)
-                    .font(.custom("SFPro", size: 20))
-                    .fontWeight(.semibold)
-                    .fontDesign(.rounded)
+                    .font(.system(size: 20, weight: .semibold, design: .rounded))
                     .padding(.horizontal, 40)
+
                 Spacer()
                 
                 Image("girl-smile-illlustration")

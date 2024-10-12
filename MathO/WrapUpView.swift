@@ -31,11 +31,10 @@ struct WrapUpView: View {
                 VStack {
                     
                     Text(question.stringQuestion)
-                        .font(.system(size: 500))
+                        .font(.system(size: 500, weight: .bold))
                         .lineLimit(1)
                         .minimumScaleFactor(0.01)
                         .foregroundColor(.white)
-                        .bold()
                         .padding(.top, 1)
                 }
                 .padding(.horizontal, 8)

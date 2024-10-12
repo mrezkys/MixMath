@@ -139,10 +139,9 @@ struct QuestionPage: View {
                     ZStack(alignment: .bottom){
                         Text(question[currentPageIndex].stringQuestion)
                             .padding(.horizontal, 24)
-                            .font(.system(size: 500))
+                            .font(.system(size: 500, weight: .bold))
                             .lineLimit(1)
                             .minimumScaleFactor(0.01)
-                            .bold()
                             .frame(maxWidth: .infinity, maxHeight: 240)
                             .background(Color("celestialBlue"))
                             .cornerRadius(24)
@@ -156,7 +155,7 @@ struct QuestionPage: View {
                                     .padding(.horizontal, 32)
                                     .padding(.vertical, 16)
                                     .foregroundColor(Color("celestialBlue"))
-                                    .background(.white)
+                                    .background(Color.white)
                                     .cornerRadius(16)
                             }
                             .padding(16)
