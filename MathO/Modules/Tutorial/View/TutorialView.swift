@@ -35,21 +35,12 @@ struct TutorialView: View {
                     .foregroundColor(.white)
             }
 
-            VStack(spacing: 16) {
-                ForEach(0..<2) { row in
-                    HStack(spacing: 16) {
-                        ForEach(0..<2) { col in
-                            let index = (row * 2) + col
-                            AnswerButtonRevamp(
-                                generatedNumber: vm.choices[index],
-                                state: vm.answerStates[index]
-                            ) {
-                                vm.handleAnswerSelection(at: index)
-                            }
-                        }
-                    }
-                }
-            }
+            AnswerButtonGrid(
+                options: vm.choices,
+                stateProvider: { index in vm.answerStates[index] },
+                onSelect: vm.handleAnswerSelection(at:)
+            )
+
             .padding(.top, 32)
             Spacer()
             Image("book-illustration")
@@ -64,7 +55,7 @@ struct TutorialView: View {
             trailing: Button(action: { vm.isFinishTutorial.toggle() }) {
                 Text("Selesai")
             }
-                .disabled(vm.answerStates.allSatisfy { $0 == .unselected })
+            .disabled(vm.answerStates.allSatisfy { $0 == .unselected })
         )
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
