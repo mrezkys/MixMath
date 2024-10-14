@@ -17,7 +17,7 @@ struct HomeView: View {
                     .frame(height: UIScreen.main.bounds.height * 0.5)
                     .padding(.top, 16)
                 
-                NavigationLink(destination: QuestionPage()) {
+                NavigationLink(destination: QuestionsView()) {
                     Image(systemName: "play.fill")
                         .foregroundColor(Color.white)
                         .font(.largeTitle)

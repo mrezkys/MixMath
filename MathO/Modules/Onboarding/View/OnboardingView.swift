@@ -103,7 +103,10 @@ struct OnboardingView: View {
                     }
                 }
                 .frame(maxWidth: .infinity)
-                .background(Color("celestialBlue"))
+                .background(
+                    Color("celestialBlue")
+                        .edgesIgnoringSafeArea(.bottom)
+                )
             }
         }
         

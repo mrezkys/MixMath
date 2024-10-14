@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2B74AA3429D569BC00CEE024 /* QuestionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AA3329D569BC00CEE024 /* QuestionPage.swift */; };
+		2B74AA3429D569BC00CEE024 /* QuestionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AA3329D569BC00CEE024 /* QuestionsView.swift */; };
 		2B74AA3629D5711800CEE024 /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B74AA3529D5711800CEE024 /* Math.swift */; };
-		2B8BD96529D8792F00AEA9E2 /* SumQuestionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BD96429D8792F00AEA9E2 /* SumQuestionPage.swift */; };
+		2B8BD96529D8792F00AEA9E2 /* QuestionEvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BD96429D8792F00AEA9E2 /* QuestionEvaluationView.swift */; };
 		2B8BEC1F29D55081003722E8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8BEC1E29D55081003722E8 /* HomeView.swift */; };
-		2BB406A929D696EB00B78AB8 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB406A829D696EB00B78AB8 /* TestView.swift */; };
+		2BB406A929D696EB00B78AB8 /* QuestionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB406A829D696EB00B78AB8 /* QuestionSummaryView.swift */; };
 		2BE4F6A929D3F41C00D83CDF /* MathOApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */; };
 		2BE4F6AB29D3F41C00D83CDF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */; };
 		2BE4F6AD29D3F41D00D83CDF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */; };
@@ -38,12 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2B74AA3329D569BC00CEE024 /* QuestionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionPage.swift; sourceTree = "<group>"; };
+		2B74AA3329D569BC00CEE024 /* QuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsView.swift; sourceTree = "<group>"; };
 		2B74AA3529D5711800CEE024 /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		2B74AA3929D5854900CEE024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		2B8BD96429D8792F00AEA9E2 /* SumQuestionPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SumQuestionPage.swift; sourceTree = "<group>"; };
+		2B8BD96429D8792F00AEA9E2 /* QuestionEvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionEvaluationView.swift; sourceTree = "<group>"; };
 		2B8BEC1E29D55081003722E8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		2BB406A829D696EB00B78AB8 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		2BB406A829D696EB00B78AB8 /* QuestionSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSummaryView.swift; sourceTree = "<group>"; };
 		2BE4F6A529D3F41C00D83CDF /* MixMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MixMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathOApp.swift; sourceTree = "<group>"; };
 		2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -108,8 +108,6 @@
 				A6DEFCF62CBA7D3B000C04D8 /* Modules */,
 				2B74AA3929D5854900CEE024 /* Info.plist */,
 				CBA6422329E502AC006006AA /* Math */,
-				2B8BD96429D8792F00AEA9E2 /* SumQuestionPage.swift */,
-				2BB406A829D696EB00B78AB8 /* TestView.swift */,
 				742B1BB229DBEF340049E8EE /* SolutionView.swift */,
 				742B1BB429DD0F370049E8EE /* ExplainView.swift */,
 				74846C0B29DDD1FD00530195 /* WrapUpView.swift */,
@@ -248,7 +246,9 @@
 		A6759EF02CBD3F8F0070A747 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2B74AA3329D569BC00CEE024 /* QuestionPage.swift */,
+				2B74AA3329D569BC00CEE024 /* QuestionsView.swift */,
+				2B8BD96429D8792F00AEA9E2 /* QuestionEvaluationView.swift */,
+				2BB406A829D696EB00B78AB8 /* QuestionSummaryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -426,8 +426,8 @@
 				A6759EF92CBD47E80070A747 /* AnswerButtonGrid.swift in Sources */,
 				742B1BB529DD0F370049E8EE /* ExplainView.swift in Sources */,
 				2BE4F6AB29D3F41C00D83CDF /* ContentView.swift in Sources */,
-				2B74AA3429D569BC00CEE024 /* QuestionPage.swift in Sources */,
-				2B8BD96529D8792F00AEA9E2 /* SumQuestionPage.swift in Sources */,
+				2B74AA3429D569BC00CEE024 /* QuestionsView.swift in Sources */,
+				2B8BD96529D8792F00AEA9E2 /* QuestionEvaluationView.swift in Sources */,
 				A6759EF62CBD45680070A747 /* QuestionPageModel.swift in Sources */,
 				CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */,
 				A6759EEC2CBD2B410070A747 /* TutorialViewModel.swift in Sources */,
@@ -441,7 +441,7 @@
 				A6DEFCFA2CBA7D3B000C04D8 /* OnboardingStepModel.swift in Sources */,
 				A6759EE82CBD24BD0070A747 /* AnswerButtonState.swift in Sources */,
 				A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */,
-				2BB406A929D696EB00B78AB8 /* TestView.swift in Sources */,
+				2BB406A929D696EB00B78AB8 /* QuestionSummaryView.swift in Sources */,
 				CBA6422229E5027E006006AA /* PatternViewModel.swift in Sources */,
 				74846C0C29DDD1FD00530195 /* WrapUpView.swift in Sources */,
 				2BE4F6D529D3F95C00D83CDF /* SplashScreenView.swift in Sources */,

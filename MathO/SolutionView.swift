@@ -258,3 +258,62 @@ struct CustomIndicator: View {
     }
     
 }
+
+
+
+
+struct AnswerButton: View {
+    let generatedNumber: Int
+    @Binding var isCircle: [Bool]
+    @Binding var isSelected: [Bool]
+    var pattern: String = ""
+    let index: Int
+    let correctAnswer: Int
+    @Binding var answerCorrectly: [Bool?]
+    let currentPageIndex: Int
+    
+    @ObservedObject var patternViewModel = PatternViewModel()
+    var body: some View {
+        Button {
+            withAnimation {
+                if correctAnswer == index {
+                    isCircle[index].toggle()
+                    isSelected[index].toggle()
+                    if(currentPageIndex != -1){
+                        if pattern != ""{
+                            patternViewModel.addPattern(PatternAnswerModel(pattern: pattern, value: 1.0))
+                        }
+                        answerCorrectly[currentPageIndex] = true
+                    }
+                } else {
+                    isSelected[index].toggle()
+                    if(currentPageIndex != -1){
+                        if pattern != ""{
+                            patternViewModel.addPattern(PatternAnswerModel(pattern: pattern, value: -1.0))
+                        }
+                        answerCorrectly[currentPageIndex] = false
+                    }
+                }
+            }
+        } label: {
+            Text("\(generatedNumber)")
+                .font(.system(size: 36, design: .rounded))
+                .bold()
+                .foregroundColor(Color.black)
+                .frame(maxWidth: .infinity, maxHeight: 400)
+                .background(
+                    RoundedRectangle(cornerRadius: isCircle[index] ? .infinity : 24)
+                        .fill(isCircle[index] ? Color("americanGreen") : isSelected[index] ? Color("fireOpal") : Color("water"))
+                        .scaleEffect(isCircle[index] ? 1.0 : 1.0)
+                        .animation(.easeIn(duration: 0.1))
+                )
+                .foregroundColor(Color.white)
+                .aspectRatio(1, contentMode: .fit)
+        }
+        .disabled(isCircle.contains(where: {
+            $0 == true
+        }) || isSelected.contains(where: {
+            $0 == true
+        }))
+    }
+}
