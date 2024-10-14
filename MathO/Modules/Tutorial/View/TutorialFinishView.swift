@@ -18,14 +18,12 @@ struct TutorialFinishView: View {
             }
             .ignoresSafeArea()
             .offset(y:120)
-            
             VStack {
-                Spacer().frame(height:262)
+                Spacer()
                 Text("Kamu Keren!")
                     .multilineTextAlignment(.center)
                     .font(.system(size: 32, weight: .heavy, design: .rounded))
                     .foregroundColor(Color("forestGreen"))
-                
                 Spacer().frame(height: 14)
                 Text("Kamu sudah paham cara bermain aplikasi ini. Mari kita mulai belajar operasi hitung campuran.")
                     .multilineTextAlignment(.center)
@@ -33,15 +31,13 @@ struct TutorialFinishView: View {
                     .padding(.horizontal, 40)
 
                 Spacer()
-                
                 Image("girl-smile-illlustration")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(minWidth: 320, idealWidth: 320, maxWidth: 320, minHeight: 280, idealHeight: 280, maxHeight: 280, alignment: .center)
                     .padding(.horizontal, 33)
-                    .ignoresSafeArea()
-                    .offset(y: 35)
             }
+            .ignoresSafeArea(edges: .bottom)
             .navigationBarTitle("")
             .navigationBarBackButtonHidden(true)
             .toolbar {

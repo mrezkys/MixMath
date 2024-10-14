@@ -113,7 +113,6 @@
 				74846C0B29DDD1FD00530195 /* WrapUpView.swift */,
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
-				458F10D329DE63C100B5B510 /* TutorialFinishView.swift */,
 			);
 			path = MathO;
 			sourceTree = "<group>";
@@ -202,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				A66F6E7E29DBDC7300260680 /* TutorialView.swift */,
+				458F10D329DE63C100B5B510 /* TutorialFinishView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
