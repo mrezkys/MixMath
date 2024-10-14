@@ -110,7 +110,6 @@
 				742B1BB229DBEF340049E8EE /* SolutionView.swift */,
 				742B1BB429DD0F370049E8EE /* ExplainView.swift */,
 				74846C0B29DDD1FD00530195 /* WrapUpView.swift */,
-				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
 			);
 			path = MathO;
@@ -167,6 +166,7 @@
 		A6759EE12CBD23900070A747 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -176,6 +176,8 @@
 			children = (
 				A6759EE32CBD23A10070A747 /* Theme */,
 				A6759EE12CBD23900070A747 /* Resources */,
+				2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */,
+				2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
