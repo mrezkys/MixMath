@@ -24,6 +24,7 @@
 		A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F6E7E29DBDC7300260680 /* TutorialView.swift */; };
 		A6759EE62CBD249D0070A747 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6759EE52CBD249D0070A747 /* AnswerButton.swift */; };
 		A6759EE82CBD24BD0070A747 /* AnswerButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6759EE72CBD24BD0070A747 /* AnswerButtonState.swift */; };
+		A6759EEC2CBD2B410070A747 /* TutorialViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6759EEB2CBD2B410070A747 /* TutorialViewModel.swift */; };
 		A6DEFCFA2CBA7D3B000C04D8 /* OnboardingStepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEFCF12CBA7D3B000C04D8 /* OnboardingStepModel.swift */; };
 		A6DEFCFB2CBA7D3B000C04D8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DEFCF32CBA7D3B000C04D8 /* OnboardingView.swift */; };
 		CB7EE06E29DD0608009D2880 /* MathPattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7EE06D29DD0608009D2880 /* MathPattern.swift */; };
@@ -53,6 +54,7 @@
 		A66F6E7E29DBDC7300260680 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		A6759EE52CBD249D0070A747 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		A6759EE72CBD24BD0070A747 /* AnswerButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtonState.swift; sourceTree = "<group>"; };
+		A6759EEB2CBD2B410070A747 /* TutorialViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewModel.swift; sourceTree = "<group>"; };
 		A6DEFCF12CBA7D3B000C04D8 /* OnboardingStepModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingStepModel.swift; sourceTree = "<group>"; };
 		A6DEFCF32CBA7D3B000C04D8 /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		CB7EE06D29DD0608009D2880 /* MathPattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathPattern.swift; sourceTree = "<group>"; };
@@ -111,7 +113,6 @@
 				74846C0B29DDD1FD00530195 /* WrapUpView.swift */,
 				2BE4F6AC29D3F41D00D83CDF /* Assets.xcassets */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
-				A66F6E7E29DBDC7300260680 /* TutorialView.swift */,
 				458F10D329DE63C100B5B510 /* TutorialFinishView.swift */,
 			);
 			path = MathO;
@@ -197,12 +198,37 @@
 			path = AnswerButton;
 			sourceTree = "<group>";
 		};
+		A6759EE92CBD2B240070A747 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A66F6E7E29DBDC7300260680 /* TutorialView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A6759EEA2CBD2B290070A747 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A6759EEB2CBD2B410070A747 /* TutorialViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A699F6022CBAD53200AE602B /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				2B8BEC1E29D55081003722E8 /* HomeView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A699F6042CBAD92800AE602B /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				A6759EEA2CBD2B290070A747 /* ViewModel */,
+				A6759EE92CBD2B240070A747 /* View */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		A6DEFCF22CBA7D3B000C04D8 /* Model */ = {
@@ -233,6 +259,7 @@
 		A6DEFCF62CBA7D3B000C04D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A699F6042CBAD92800AE602B /* Tutorial */,
 				A699F6022CBAD53200AE602B /* Home */,
 				A6DEFCF52CBA7D3B000C04D8 /* Onboarding */,
 			);
@@ -336,6 +363,7 @@
 				2B74AA3429D569BC00CEE024 /* QuestionPage.swift in Sources */,
 				2B8BD96529D8792F00AEA9E2 /* SumQuestionPage.swift in Sources */,
 				CB95073A29DD2144003065B0 /* MathSolution.swift in Sources */,
+				A6759EEC2CBD2B410070A747 /* TutorialViewModel.swift in Sources */,
 				2BE4F6A929D3F41C00D83CDF /* MathOApp.swift in Sources */,
 				CB7EE07029DD0F74009D2880 /* PatternModel.swift in Sources */,
 				CB7EE06E29DD0608009D2880 /* MathPattern.swift in Sources */,
