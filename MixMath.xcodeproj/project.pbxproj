@@ -103,7 +103,6 @@
 				2B74AA3929D5854900CEE024 /* Info.plist */,
 				CBA6422329E502AC006006AA /* Math */,
 				2BE4F6A829D3F41C00D83CDF /* MathOApp.swift */,
-				2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */,
 				2B8BD96429D8792F00AEA9E2 /* SumQuestionPage.swift */,
 				2BE4F6AA29D3F41C00D83CDF /* ContentView.swift */,
 				2B74AA3329D569BC00CEE024 /* QuestionPage.swift */,
@@ -214,6 +213,22 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		A6759EED2CBD2ED30070A747 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A6759EEE2CBD2EDA0070A747 /* View */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		A6759EEE2CBD2EDA0070A747 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2BE4F6D429D3F95C00D83CDF /* SplashScreenView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		A699F6022CBAD53200AE602B /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +274,7 @@
 		A6DEFCF62CBA7D3B000C04D8 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				A6759EED2CBD2ED30070A747 /* Splash */,
 				A699F6042CBAD92800AE602B /* Tutorial */,
 				A699F6022CBAD53200AE602B /* Home */,
 				A6DEFCF52CBA7D3B000C04D8 /* Onboarding */,
