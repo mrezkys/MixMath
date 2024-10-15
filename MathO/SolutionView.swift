@@ -110,13 +110,7 @@ struct SolutionView: View {
                                 }
                         }
                     } else {
-                        WrapUpView(
-                            isFinished: $isSolutionFinished, question: question
-                        ).onChange(of: isSolutionFinished){_ in
-                            if(isSolutionFinished == true){
-                                presentationMode.wrappedValue.dismiss()
-                            }
-                        }
+                        SolutionWrapUpView(question: question)
                     }
                     
                 }.padding(.vertical, 16)
@@ -129,7 +123,23 @@ struct SolutionView: View {
                         .edgesIgnoringSafeArea(.top)
                 }
             )
-        }.navigationBarBackButtonHidden(true)
+        }
+        .navigationBarTitle("Bantuan Soal")
+        .navigationBarItems(
+            trailing: Button {
+                if currentStep < question.solution.count {
+                    currentStep += 1
+                } else {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            } label: {
+                if currentStep < question.solution.count {
+                    Text("Selanjutnya")
+                } else {
+                    Text("Selesai")
+                }
+            }
+        )
     }
 }
 
