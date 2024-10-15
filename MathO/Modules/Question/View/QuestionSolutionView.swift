@@ -8,127 +8,116 @@
 import SwiftUI
 
 struct QuestionSolutionView: View {
+    var question: Math
+    
     @State private var currentStep = 0
-    private var question: Math
-    let ll: CGFloat
-    @State public var currentPageIndex: Int = 0
-    @State public var isCircle: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
-    @State public var isSelected: [[Bool]] = Array(repeating: [false, false, false, false], count: 12)
-    @State var showSummaryView: Bool = false
-    @State var answerCorrectly: [Bool?] = Array(repeating: nil, count: 4)
-    @State private var isShowingTriangle: Bool = false
-    @State private var isFinishSolution: Bool = false
+    @State private var currentPageIndex: Int = 0
+    @State public var temporaryAnswerStates: [AnswerButtonState] = Array(repeating: .unselected, count: 4)
+    
+    @State var isShowingTriangle: Bool = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    
-    @State var isSolutionFinished: Bool = false
-
-    
+    let ll: CGFloat
     
     init(question: Math) {
         self.question = question
-        self.ll = CGFloat(50 + (5-(question.solution.count+1)) * 30)
+        self.ll = CGFloat(50 + (5 - (question.solution.count + 1)) * 30)
     }
     
     var body: some View {
-        NavigationView(){
-            ScrollView{
-                VStack{
-                    if(currentStep < question.solution.count){
-                        HStack{
-                            ForEach(0..<question.solution[currentStep].solvingStep.count, id: \.self) { solvingStepIndex in
-                                Text(question.solution[currentStep].solvingStep[solvingStepIndex])
-                                    .font(.system(size: 32, design: .rounded))
-                                    .bold()
-                                    .opacity(solvingStepIndex == 1 ? 1 : 0.5)
-                            }
+        ScrollView {
+            VStack {
+                if currentStep < question.solution.count {
+                    HStack {
+                        ForEach(0..<question.solution[currentStep].solvingStep.count, id: \.self) { solvingStepIndex in
+                            Text(question.solution[currentStep].solvingStep[solvingStepIndex])
+                                .font(.system(size: 32, weight: .bold, design: .rounded))
+                                .opacity(solvingStepIndex == 1 ? 1 : 0.5)
                         }
                     }
                     
-                    CustomIndicator(numberOfStep: question.solution.count + 1, lengthLine: CGFloat(ll), currentStep: $currentStep)
-                        .padding(24)
-                    
-                    if(currentStep < question.solution.count){
-                        
-                        VStack {
-                            Text("Kamu perlu menjawab pertanyaan ini")
-                                .font(.system(size: 16, design: .rounded))
+                    VStack {
+                        Text("Kamu perlu menjawab pertanyaan ini")
+                            .font(.system(size: 16, design: .rounded))
+                            .foregroundColor(.white)
+                            .bold()
+                        if !isShowingTriangle {
+                            Text("\(question.solution[currentStep].operationStep)")
+                                .font(.system(size: 48, design: .rounded))
                                 .foregroundColor(.white)
                                 .bold()
-                            if(!isShowingTriangle) {
-                                Text("\(question.solution[currentStep].operationStep)"
-                                )
-                                    .font(.system(size: 48, design: .rounded))
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .padding(.top, 1)
-                            } else {
-                                Text("\(question.solution[currentStep].operationStep) = \(question.solution[currentStep].answerOptions[question.solution[currentStep].rightAnswerIndex])"
-                                )
-                                    .font(.system(size: 48, design: .rounded))
-                                    .foregroundColor(.white)
-                                    .bold()
-                                    .padding(.top, 1)
-                            }
-                            
-                            
-                        }
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 24)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .foregroundColor(Color("celestialBlue"))
-                        )
-                        .padding([.leading, .bottom, .trailing], 32)
-                        
-                        if !isShowingTriangle {
-                            VStack (spacing: 16) {
-                                HStack (spacing: 16) {
-                                    AnswerButton(generatedNumber: question.solution[currentStep].answerOptions[0], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 0, correctAnswer: question.solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
-                                    
-                                    AnswerButton(generatedNumber: question.solution[currentStep].answerOptions[1], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 1, correctAnswer: question.solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
-                                }
-                                .padding(.horizontal, 32)
-                                
-                                HStack (spacing: 16){
-                                    AnswerButton(generatedNumber: question.solution[currentStep].answerOptions[2], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 2, correctAnswer: question.solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
-                                    
-                                    AnswerButton(generatedNumber: question.solution[currentStep].answerOptions[3], isCircle: $isCircle[currentStep], isSelected: $isSelected[currentStep], index: 3, correctAnswer: question.solution[currentStep].rightAnswerIndex, answerCorrectly: $answerCorrectly, currentPageIndex: currentStep)
-                                }
-                                .padding(.horizontal, 32)
-                            }
-                            .onChange(of: isSelected[currentStep]) { newValue in
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                    isShowingTriangle = true
-                                }
-                            }
+                                .padding(.top, 1)
                         } else {
-                            SegitigaAjaibView(
-                                imagePath: segitigaAjaib(operation: question.solution[currentStep].operationStep, isParenthesis: question.solution[currentStep].isParenthtesis), descPath: teksAjaib(operation: question.solution[currentStep].operationStep, isParenthtesis: question.solution[currentStep].isParenthtesis))
-                                .onChange(of: currentStep) { newValue in
-                                    isShowingTriangle = false
-                                }
+                            Text("\(question.solution[currentStep].operationStep) = \(question.solution[currentStep].answerOptions[question.solution[currentStep].rightAnswerIndex])")
+                                .font(.system(size: 48, design: .rounded))
+                                .foregroundColor(.white)
+                                .bold()
+                                .padding(.top, 1)
                         }
-                    } else {
-                        QuestionSolutionWrapUpView(question: question)
                     }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 24)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 10)
+                            .foregroundColor(Color("celestialBlue"))
+                    )
                     
-                }.padding(.vertical, 16)
-            }
-            .background(
-                GeometryReader { geometry in
-                    Color.clear
-                        .frame(height: geometry.safeAreaInsets.top)
-                        .background(Color.clear)
-                        .edgesIgnoringSafeArea(.top)
+                    Spacer().frame(height: 24)
+                    
+                    CustomIndicator(
+                        numberOfStep: question.solution.count + 1,
+                        lengthLine: CGFloat(ll),
+                        currentStep: $currentStep,
+                        onSelect: {index in
+                            currentStep = index
+                            isShowingTriangle = false
+                            
+                            temporaryAnswerStates = Array(repeating: .unselected, count: 4)
+                        }
+                    )
+                    
+                    Spacer().frame(height: 24)
+                    
+                    if !isShowingTriangle {
+                        AnswerButtonGrid(
+                            options: question.solution[currentStep].answerOptions,
+                            stateProvider: { index in
+                                answerButtonState(for: index)
+                            },
+                            onSelect: { index in
+                                handleAnswerSelection(at: index)
+                            }
+                        )
+                    } else {
+                        SegitigaAjaibView(
+                            imagePath: segitigaAjaib(
+                                operation: question.solution[currentStep].operationStep,
+                                isParenthesis: question.solution[currentStep].isParenthtesis
+                            ),
+                            descPath: teksAjaib(
+                                operation: question.solution[currentStep].operationStep,
+                                isParenthtesis: question.solution[currentStep].isParenthtesis
+                            )
+                        )
+                        .onChange(of: currentStep) { newValue in
+                            isShowingTriangle = false
+                        }
+                        
+                    }
+                } else {
+                    QuestionSolutionWrapUpView(question: question)
                 }
-            )
+            }
         }
+        .padding(24)
         .navigationBarTitle("Bantuan Soal")
         .navigationBarItems(
             trailing: Button {
                 if currentStep < question.solution.count {
                     currentStep += 1
+                    isShowingTriangle = false
+                    
+                    temporaryAnswerStates = Array(repeating: .unselected, count: 4)
                 } else {
                     presentationMode.wrappedValue.dismiss()
                 }
@@ -141,7 +130,28 @@ struct QuestionSolutionView: View {
             }
         )
     }
+    
+    private func handleAnswerSelection(at index: Int) {
+        withAnimation {
+            temporaryAnswerStates[index] = question.solution[currentStep].rightAnswerIndex == index ? .correct : .incorrect
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                isShowingTriangle = true
+            }
+        }
+    }
+    
+    private func answerButtonState(for index: Int) -> AnswerButtonState {
+        temporaryAnswerStates[index]
+    }
 }
+
+
+struct QuestionSolutionView_Previews: PreviewProvider {
+    static var previews: some View {
+        QuestionSolutionView(question: Math())
+    }
+}
+
 
 struct SegitigaAjaibView: View {
     var imagePath: String
@@ -157,11 +167,11 @@ struct SegitigaAjaibView: View {
                 .resizable()
                 .frame(width: 228, height: 228)
             
-                Text(descPath)
-                    .font(.system(size: 14, design: .rounded))
-                    .multilineTextAlignment(.center)
-                    .foregroundColor(.black)
-           
+            Text(descPath)
+                .font(.system(size: 14, design: .rounded))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.black)
+            
             
         }
         .padding(40)
@@ -227,24 +237,17 @@ func segitigaAjaib(operation: String, isParenthesis: Bool) -> String {
 }
 
 
-
-struct QuestionSolutionView_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionSolutionView(question: Math())
-    }
-}
-
 struct CustomIndicator: View {
     let numberOfStep: Int
     let lengthLine: CGFloat
     @Binding var currentStep: Int
-    
+    var onSelect: (Int) -> Void
     
     var body: some View {
         HStack(spacing: 0) {
             ForEach(0..<numberOfStep) { index in
                 Button {
-                    currentStep = index
+                    onSelect(index)
                 } label: {
                     Circle()
                         .fill(currentStep > index ? Color.blue : Color("water"))
@@ -267,63 +270,4 @@ struct CustomIndicator: View {
         }
     }
     
-}
-
-
-
-
-struct AnswerButton: View {
-    let generatedNumber: Int
-    @Binding var isCircle: [Bool]
-    @Binding var isSelected: [Bool]
-    var pattern: String = ""
-    let index: Int
-    let correctAnswer: Int
-    @Binding var answerCorrectly: [Bool?]
-    let currentPageIndex: Int
-    
-    @ObservedObject var patternViewModel = PatternViewModel()
-    var body: some View {
-        Button {
-            withAnimation {
-                if correctAnswer == index {
-                    isCircle[index].toggle()
-                    isSelected[index].toggle()
-                    if(currentPageIndex != -1){
-                        if pattern != ""{
-                            patternViewModel.addPattern(PatternAnswerModel(pattern: pattern, value: 1.0))
-                        }
-                        answerCorrectly[currentPageIndex] = true
-                    }
-                } else {
-                    isSelected[index].toggle()
-                    if(currentPageIndex != -1){
-                        if pattern != ""{
-                            patternViewModel.addPattern(PatternAnswerModel(pattern: pattern, value: -1.0))
-                        }
-                        answerCorrectly[currentPageIndex] = false
-                    }
-                }
-            }
-        } label: {
-            Text("\(generatedNumber)")
-                .font(.system(size: 36, design: .rounded))
-                .bold()
-                .foregroundColor(Color.black)
-                .frame(maxWidth: .infinity, maxHeight: 400)
-                .background(
-                    RoundedRectangle(cornerRadius: isCircle[index] ? .infinity : 24)
-                        .fill(isCircle[index] ? Color("americanGreen") : isSelected[index] ? Color("fireOpal") : Color("water"))
-                        .scaleEffect(isCircle[index] ? 1.0 : 1.0)
-                        .animation(.easeIn(duration: 0.1))
-                )
-                .foregroundColor(Color.white)
-                .aspectRatio(1, contentMode: .fit)
-        }
-        .disabled(isCircle.contains(where: {
-            $0 == true
-        }) || isSelected.contains(where: {
-            $0 == true
-        }))
-    }
 }
