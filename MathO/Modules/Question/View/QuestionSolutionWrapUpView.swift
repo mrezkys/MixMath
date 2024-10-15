@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SolutionWrapUpView: View {
+struct QuestionSolutionWrapUpView: View {
     var question: Math
     
     var body: some View {
@@ -90,10 +90,10 @@ struct SolutionWrapUpView: View {
     }
 }
 
-struct SolutionWrapUpView_Previews: PreviewProvider {
+struct QuestionSolutionWrapUpView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView {
-            SolutionWrapUpView( question: Math())
+            QuestionSolutionWrapUpView( question: Math())
         }
     }
 }

@@ -29,7 +29,7 @@ struct QuestionsView: View {
                     questionView
 
                     NavigationLink(
-                        destination: SolutionView(question: questions[currentQuestionIndex].mathQuestion),
+                        destination: QuestionSolutionView(question: questions[currentQuestionIndex].mathQuestion),
                         isActive: $needsHelp
                     ) {
                         EmptyView()

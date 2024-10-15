@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SolutionView: View {
+struct QuestionSolutionView: View {
     @State private var currentStep = 0
     private var question: Math
     let ll: CGFloat
@@ -110,7 +110,7 @@ struct SolutionView: View {
                                 }
                         }
                     } else {
-                        SolutionWrapUpView(question: question)
+                        QuestionSolutionWrapUpView(question: question)
                     }
                     
                 }.padding(.vertical, 16)
@@ -228,9 +228,9 @@ func segitigaAjaib(operation: String, isParenthesis: Bool) -> String {
 
 
 
-struct SolutionView_Previews: PreviewProvider {
+struct QuestionSolutionView_Previews: PreviewProvider {
     static var previews: some View {
-        SolutionView(question: Math())
+        QuestionSolutionView(question: Math())
     }
 }
 
