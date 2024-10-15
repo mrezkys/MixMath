@@ -26,7 +26,6 @@ struct AnswerButtonGrid: View {
                         )
                     }
                 }
-                .padding(.horizontal, 32)
             }
         }
     }

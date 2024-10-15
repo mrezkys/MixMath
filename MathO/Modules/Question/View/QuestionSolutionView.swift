@@ -34,7 +34,7 @@ struct QuestionSolutionView: View {
                                 .opacity(solvingStepIndex == 1 ? 1 : 0.5)
                         }
                     }
-                    
+                    Spacer().frame(height: 24)
                     VStack {
                         Text("Kamu perlu menjawab pertanyaan ini")
                             .font(.system(size: 16, design: .rounded))
@@ -108,8 +108,8 @@ struct QuestionSolutionView: View {
                     QuestionSolutionWrapUpView(question: question)
                 }
             }
+            .padding([.top, .leading, .trailing], 24)
         }
-        .padding(24)
         .navigationBarTitle("Bantuan Soal")
         .navigationBarItems(
             trailing: Button {
@@ -180,7 +180,6 @@ struct SegitigaAjaibView: View {
             RoundedRectangle(cornerRadius: 10)
                 .foregroundColor(Color("water"))
         )
-        .padding(.horizontal, 32)
     }
 }
 

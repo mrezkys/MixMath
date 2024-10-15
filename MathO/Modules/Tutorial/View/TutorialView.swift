@@ -20,7 +20,6 @@ struct TutorialView: View {
                     .frame(maxWidth: .infinity, maxHeight: 240)
                     .background(Color("celestialBlue"))
                     .cornerRadius(24)
-                    .padding([.top, .leading, .trailing], 24)
                     .foregroundColor(.white)
             } else {
                 Text(vm.question)
@@ -31,17 +30,15 @@ struct TutorialView: View {
                     .frame(maxWidth: .infinity, maxHeight: 240)
                     .background(Color("celestialBlue"))
                     .cornerRadius(24)
-                    .padding([.top, .leading, .trailing], 24)
                     .foregroundColor(.white)
             }
-
+            
+            Spacer().frame(height: 24)
             AnswerButtonGrid(
                 options: vm.choices,
                 stateProvider: { index in vm.answerStates[index] },
                 onSelect: vm.handleAnswerSelection(at:)
             )
-
-            .padding(.top, 32)
             Spacer()
             Image("book-illustration")
                 .resizable()
@@ -49,7 +46,7 @@ struct TutorialView: View {
                 .frame(maxWidth: .infinity)
                 .padding(.horizontal, 42)
         }
-        .padding(.top, 36)
+        .padding([.top, .leading, .trailing], 24)
         .navigationBarTitle("Mari Berhitung 🤓")
         .navigationBarItems(
             trailing: Button(action: { vm.isFinishTutorial.toggle() }) {

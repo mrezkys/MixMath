@@ -20,53 +20,53 @@ struct QuestionsView: View {
     }
     
     var body: some View {
+        VStack {
+            AnswerProgressBar(
+                answerCorrectly: questions.map { $0.isCorrect },
+                questionCount: questions.count
+            )
             VStack {
-                AnswerProgressBar(
-                    answerCorrectly: questions.map { $0.isCorrect },
-                    questionCount: questions.count
-                )
-                VStack {
-                    questionView
-
-                    NavigationLink(
-                        destination: QuestionSolutionView(question: questions[currentQuestionIndex].mathQuestion),
-                        isActive: $needsHelp
-                    ) {
-                        EmptyView()
-                    }
-
-                    AnswerButtonGrid(
-                        options: questions[currentQuestionIndex]
-                            .mathQuestion
-                            .answerOption
-                            .answerOptions,
-                        stateProvider: { index in
-                            answerButtonState(for: index)
-                        },
-                        onSelect: { index in
-                            showHelpButton = true
-                            handleAnswerSelection(at: index)
-                        }
-                    )
-                    .padding(.top, 32)
-                    
-                    Spacer()
-                    
-                    Image("book-illustration")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: .infinity)
-                        .padding(.horizontal, 42)
-                    NavigationLink(
-                        destination: QuestionSummaryView(questions: questions),
-                        isActive: $showSummaryView
-                    ) {
-                        EmptyView()
-                    }
-                        
+                questionView
+                
+                NavigationLink(
+                    destination: QuestionSolutionView(question: questions[currentQuestionIndex].mathQuestion),
+                    isActive: $needsHelp
+                ) {
+                    EmptyView()
                 }
+                
+                AnswerButtonGrid(
+                    options: questions[currentQuestionIndex]
+                        .mathQuestion
+                        .answerOption
+                        .answerOptions,
+                    stateProvider: { index in
+                        answerButtonState(for: index)
+                    },
+                    onSelect: { index in
+                        showHelpButton = true
+                        handleAnswerSelection(at: index)
+                    }
+                )
+                .padding(.top, 32)
+                
+                Spacer()
+                
             }
-        
+            .padding([.top, .leading, .trailing], 24)
+            
+            Image("book-illustration")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, 16)
+            NavigationLink(
+                destination: QuestionSummaryView(questions: questions),
+                isActive: $showSummaryView
+            ) {
+                EmptyView()
+            }
+        }
         .navigationBarTitle("Mari Berhitung 🤓")
         .navigationBarItems(trailing: nextButton)
     }
@@ -81,7 +81,6 @@ struct QuestionsView: View {
                 .frame(maxWidth: .infinity, maxHeight: 240)
                 .background(Color("celestialBlue"))
                 .cornerRadius(24)
-                .padding([.top, .leading, .trailing], 24)
                 .foregroundColor(.white)
             
             if showHelpButton {

@@ -20,10 +20,9 @@ struct QuestionEvaluationView: View {
                 .frame(maxWidth: .infinity, maxHeight: 240)
                 .background(Color("celestialBlue"))
                 .cornerRadius(24)
-                .padding([.top, .leading, .trailing], 24)
                 .foregroundColor(.white)
             
-            Spacer()
+            Spacer().frame(height: 32)
             
             AnswerButtonGrid(
                 options: question.mathQuestion.answerOption.answerOptions,
@@ -37,7 +36,7 @@ struct QuestionEvaluationView: View {
             
             Spacer()
         }
-        .padding(.top, 35)
+        .padding(24)
         .navigationBarTitle("Lets Review 🤓", displayMode: .inline)
     }
     
