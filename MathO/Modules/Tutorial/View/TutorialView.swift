@@ -44,7 +44,6 @@ struct TutorialView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxWidth: .infinity)
-                .padding(.horizontal, 42)
         }
         .padding([.top, .leading, .trailing], 24)
         .navigationBarTitle("Mari Berhitung 🤓")
