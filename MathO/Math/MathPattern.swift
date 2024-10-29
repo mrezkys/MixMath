@@ -41,7 +41,6 @@ struct MathPattern{
                                           ":,+,x,-",
                                           "-,-,+,x"]
     
-    @ObservedObject var patternViewModel = PatternViewModel()
     
     private func randomMidPattern() -> String {
         return MathPatterns[Int.random(in: 0..<15)]
@@ -82,21 +81,8 @@ struct MathPattern{
         return patterns.shuffled()
     }
     
-    public func GeneratePatternByML() -> [String] {
-        
-#if targetEnvironment(simulator)
+    public func generateDefaultPatterns() -> [String] {
         return GeneratePattern(amount: 12)
-#else
-        
-        var recomendationPattern = MathTabularRegressor().predictData(patterns: MathPatterns)
-        
-        if recomendationPattern.isEmpty {
-            return GeneratePattern(amount: 12)
-        }
-        
-        recomendationPattern += GeneratePattern(amount: 6, recomendPattern: recomendationPattern)
-        
-        return recomendationPattern.shuffled()
-#endif
     }
+
 }

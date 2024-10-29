@@ -15,7 +15,7 @@ struct QuestionsView: View {
     @State private var needsHelp: Bool = false
     
     init() {
-        let patterns = MathPattern().GeneratePatternByML()
+        let patterns = MathPattern().generateDefaultPatterns()
         self._questions = State(initialValue: QuestionPageModel.generateQuestions(from: patterns))
     }
     
