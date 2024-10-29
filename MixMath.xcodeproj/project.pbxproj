@@ -105,7 +105,6 @@
 				A6759EDC2CBD236B0070A747 /* Core */,
 				A6DEFCF62CBA7D3B000C04D8 /* Modules */,
 				2B74AA3929D5854900CEE024 /* Info.plist */,
-				CBA6422329E502AC006006AA /* Math */,
 				2BE4F6AE29D3F41D00D83CDF /* Preview Content */,
 			);
 			path = MathO;
@@ -144,6 +143,7 @@
 		A6759EDE2CBD237B0070A747 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				CBA6422329E502AC006006AA /* Math */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
