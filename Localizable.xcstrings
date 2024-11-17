@@ -1,0 +1,411 @@
+{
+  "sourceLanguage" : "id",
+  "strings" : {
+    "" : {
+
+    },
+    "%@" : {
+
+    },
+    "%@ = %lld" : {
+      "localizations" : {
+        "id" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ = %2$lld"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "Akan lebih baik jika kamu terus berlatih." : {
+      "comment" : "Encouragement for near-perfect score",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It would be better if you keep practicing."
+          }
+        }
+      }
+    },
+    "Bantuan" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help"
+          }
+        }
+      }
+    },
+    "Bantuan Soal" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View Solution"
+          }
+        }
+      }
+    },
+    "Belum pernah bermain?" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Never play yet?"
+          }
+        }
+      }
+    },
+    "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa operasi yang berada pada tanda buka kurung dan tutup kurung adalah operasi yang harus didahulukan dalam operasi campuran matematika. Untuk menyelesaikan perhitungan di dalam tanda buka kurung dan tutup kurung, kita melihat kembali di segitiga ajaib bahwa yang pertama harus dikerjakan adalah perkalian dan pembagian, kemudian dilanjutkan dengan penjumlahan dan pengurangan" : {
+      "comment" : "Description for operations inside parentheses",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on the magic triangle above, operations within parentheses must be prioritized in mixed mathematical operations. To solve calculations inside parentheses, refer back to the magic triangle: multiplication and division come first, followed by addition and subtraction."
+          }
+        }
+      }
+    },
+    "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa parenthesis merupakan operasi pertama yang harus didahulukan dalam operasi campuran matematika." : {
+      "comment" : "Fallback description for mixed operations",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on the magic triangle above, parentheses are the first operation to be prioritized in mixed mathematical operations"
+          }
+        }
+      }
+    },
+    "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pembagian merupakan operasi ketiga yang harus didahulukan dalam operasi campuran matematika." : {
+      "comment" : "Description for division",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on the magic triangle above, division is the third operation to be prioritized in mixed mathematical operations."
+          }
+        }
+      }
+    },
+    "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pengurangan merupakan operasi kelima yang harus didahulukan dalam operasi campuran matematika." : {
+      "comment" : "Description for subtraction",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on the magic triangle above, subtraction is the fifth operation to be prioritized in mixed mathematical operations."
+          }
+        }
+      }
+    },
+    "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa penjumlahan merupakan operasi keempat yang harus didahulukan dalam operasi campuran matematika." : {
+      "comment" : "Description for addition",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on the magic triangle above, addition is the fourth operation to be prioritized in mixed mathematical operations."
+          }
+        }
+      }
+    },
+    "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa perkalian merupakan operasi kedua yang harus didahulukan dalam operasi campuran matematika." : {
+      "comment" : "Description for multiplication",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Based on the magic triangle above, multiplication is the second operation to be prioritized in mixed mathematical operations."
+          }
+        }
+      }
+    },
+    "Hasil Akhirnya adalah" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The result is"
+          }
+        }
+      }
+    },
+    "Jawablah pertanyaan yang muncul di sini dengan jawaban yang tersedia di bawah" : {
+      "comment" : "Instruction for answering questions",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Answer the question that appears here using the available options below."
+          }
+        }
+      }
+    },
+    "Kamu Keren!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You're Awesome!"
+          }
+        }
+      }
+    },
+    "Kamu perlu berlatih lagi, semangat!" : {
+      "comment" : "Encouragement for needing improvement",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to practice more, keep it up!"
+          }
+        }
+      }
+    },
+    "Kamu perlu menjawab pertanyaan ini" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You need to answer this"
+          }
+        }
+      }
+    },
+    "Kamu sudah paham cara bermain aplikasi ini. Mari kita mulai belajar operasi hitung campuran." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You already understand how to use this app. Let's start learning mixed math operations."
+          }
+        }
+      }
+    },
+    "Lanjut" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "Lets Review 🤓" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lets Review 🤓"
+          }
+        }
+      }
+    },
+    "Mari Berhitung 🤓" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lets Calculate 🤓"
+          }
+        }
+      }
+    },
+    "Pembagian" : {
+      "comment" : "Pronunciation for division operator",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Division"
+          }
+        }
+      }
+    },
+    "Pengurangan" : {
+      "comment" : "Pronunciation for subtraction operator",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subtraction"
+          }
+        }
+      }
+    },
+    "Perkalian" : {
+      "comment" : "Pronunciation for multiplication operator",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Multiplication"
+          }
+        }
+      }
+    },
+    "Pertambahan" : {
+      "comment" : "Pronunciation for addition operator",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Addition"
+          }
+        }
+      }
+    },
+    "Ringkasan" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Summary"
+          }
+        }
+      }
+    },
+    "Saya Mengerti" : {
+      "comment" : "Label for the button when the user has finished onboarding",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I Understand"
+          }
+        }
+      }
+    },
+    "Saya Siap!" : {
+      "comment" : "Label for the button when the user is ready to proceed",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I'm Ready!"
+          }
+        }
+      }
+    },
+    "Sebelum mulai belajar operasi hitung campuran, kamu perlu menguasai operasi hitung dasar." : {
+      "comment" : "Reminder to master basic arithmetic first",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Before starting to learn mixed arithmetic operations, you need to master basic arithmetic."
+          }
+        }
+      }
+    },
+    "Segitiga Ajaib" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Magic Triangle"
+          }
+        }
+      }
+    },
+    "Selamat datang!" : {
+      "comment" : "Welcome message for onboarding",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Welcome!"
+          }
+        }
+      }
+    },
+    "Selamat! Pertahankan cara berlatihmu." : {
+      "comment" : "Encouragement for perfect score",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Congratulations! Keep up your practice method."
+          }
+        }
+      }
+    },
+    "Selanjutnya" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next"
+          }
+        }
+      }
+    },
+    "Selesai" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finish"
+          }
+        }
+      }
+    },
+    "Step %lld: Selesaikan %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Step %1$lld: Calculate %2$@"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Step %1$lld: Selesaikan %2$@"
+          }
+        }
+      }
+    },
+    "Sudah belajar soal-soal di atas?" : {
+      "comment" : "Question about prior exercises",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Have you practiced the problems above?"
+          }
+        }
+      }
+    },
+    "Sudah siap belajar mengenai operasi hitung campuran?" : {
+      "comment" : "Question to engage user readiness",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you ready to learn about mixed arithmetic operations?"
+          }
+        }
+      }
+    },
+    "Tutorial" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutorial"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

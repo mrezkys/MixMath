@@ -10,9 +10,13 @@ import SwiftUI
 class TutorialViewModel: ObservableObject {
     @Published var showDisplayText: Bool = true
     @Published var isFinishTutorial: Bool = false
+
     var displayText: String {
         if showDisplayText {
-            return "Jawablah pertanyaan yang muncul di sini dengan jawaban yang tersedia di bawah"
+            return NSLocalizedString(
+                "Jawablah pertanyaan yang muncul di sini dengan jawaban yang tersedia di bawah",
+                comment: "Instruction for answering questions"
+            )
         } else {
             return question
         }

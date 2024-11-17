@@ -77,10 +77,10 @@ struct QuestionSummaryView: View {
     
     private func summarySubheadline() -> String {
         correctCount == 12
-        ? "Selamat! Pertahankan cara berlatihmu."
-        : correctCount >= 10
-        ? "Akan lebih baik jika kamu terus berlatih."
-        : "Kamu perlu berlatih lagi, semangat!"
+            ? NSLocalizedString("Selamat! Pertahankan cara berlatihmu.", comment: "Encouragement for perfect score")
+            : correctCount >= 10
+            ? NSLocalizedString("Akan lebih baik jika kamu terus berlatih.", comment: "Encouragement for near-perfect score")
+            : NSLocalizedString("Kamu perlu berlatih lagi, semangat!", comment: "Encouragement for needing improvement")
     }
     
     private func pickSummaryAvatar() -> String {

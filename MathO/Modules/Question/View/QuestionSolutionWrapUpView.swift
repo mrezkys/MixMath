@@ -81,10 +81,10 @@ struct QuestionSolutionWrapUpView: View {
     private func getOperatorPronounce(operation: String) -> String {
         let ops = operation.components(separatedBy: " ")[1]
         switch ops {
-        case "x": return "Perkalian"
-        case ":": return "Pembagian"
-        case "+": return "Pertambahan"
-        case "-": return "Pengurangan"
+        case "x": return NSLocalizedString("Perkalian", comment: "Pronunciation for multiplication operator")
+        case ":": return NSLocalizedString("Pembagian", comment: "Pronunciation for division operator")
+        case "+": return NSLocalizedString("Pertambahan", comment: "Pronunciation for addition operator")
+        case "-": return NSLocalizedString("Pengurangan", comment: "Pronunciation for subtraction operator")
         default: return ""
         }
     }

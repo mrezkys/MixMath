@@ -35,25 +35,43 @@ struct MagicTriangleView: View {
                 .foregroundColor(Color("water"))
         )
     }
-    
+
     func getDescription() -> String {
         let ops = operation.components(separatedBy: " ")[1]
-        var parenthesis = "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa operasi yang berada pada tanda buka kurung dan tutup kurung adalah operasi yang harus didahulukan dalam operasi campuran matematika. Untuk menyelesaikan perhitungan di dalam tanda buka kurung dan tutup kurung, kita melihat kembali di segitiga ajaib bahwa yang pertama harus dikerjakan adalah perkalian dan pembagian, kemudian dilanjutkan dengan penjumlahan dan pengurangan"
         
         if isParenthesis {
-            return parenthesis
+            return NSLocalizedString(
+                "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa operasi yang berada pada tanda buka kurung dan tutup kurung adalah operasi yang harus didahulukan dalam operasi campuran matematika. Untuk menyelesaikan perhitungan di dalam tanda buka kurung dan tutup kurung, kita melihat kembali di segitiga ajaib bahwa yang pertama harus dikerjakan adalah perkalian dan pembagian, kemudian dilanjutkan dengan penjumlahan dan pengurangan",
+                comment: "Description for operations inside parentheses"
+            )
         }
+        
         switch ops {
         case "x":
-            return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa perkalian merupakan operasi kedua yang harus didahulukan dalam operasi campuran matematika."
+            return NSLocalizedString(
+                "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa perkalian merupakan operasi kedua yang harus didahulukan dalam operasi campuran matematika.",
+                comment: "Description for multiplication"
+            )
         case ":":
-            return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pembagian merupakan operasi ketiga yang harus didahulukan dalam operasi campuran matematika."
+            return NSLocalizedString(
+                "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pembagian merupakan operasi ketiga yang harus didahulukan dalam operasi campuran matematika.",
+                comment: "Description for division"
+            )
         case "+":
-            return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa penjumlahan merupakan operasi keempat yang harus didahulukan dalam operasi campuran matematika."
+            return NSLocalizedString(
+                "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa penjumlahan merupakan operasi keempat yang harus didahulukan dalam operasi campuran matematika.",
+                comment: "Description for addition"
+            )
         case "-":
-            return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pengurangan merupakan operasi kelima yang harus didahulukan dalam operasi campuran matematika."
+            return NSLocalizedString(
+                "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa pengurangan merupakan operasi kelima yang harus didahulukan dalam operasi campuran matematika.",
+                comment: "Description for subtraction"
+            )
         default:
-            return "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa parenthesis merupakan operasi pertama yang harus didahulukan dalam operasi campuran matematika."
+            return NSLocalizedString(
+                "Berdasarkan segitiga ajaib di atas, dapat dilihat bahwa parenthesis merupakan operasi pertama yang harus didahulukan dalam operasi campuran matematika.",
+                comment: "Fallback description for mixed operations"
+            )
         }
     }
 

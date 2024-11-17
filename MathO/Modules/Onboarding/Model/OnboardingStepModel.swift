@@ -16,13 +16,13 @@ struct OnboardingStepModel {
 let onboardingStepsData: [OnboardingStepModel] = [
     OnboardingStepModel(
         image: "boy-presenting-illustration",
-        title: "Selamat datang!", 
-        description: "Sudah siap belajar mengenai operasi hitung campuran?"
+        title: NSLocalizedString("Selamat datang!", comment: "Welcome message for onboarding"),
+        description: NSLocalizedString("Sudah siap belajar mengenai operasi hitung campuran?", comment: "Question to engage user readiness")
     ),
     OnboardingStepModel(
         image: "girl-presenting-illustration",
-        title: "Sudah belajar soal-soal di atas?",
-        description: "Sebelum mulai belajar operasi hitung campuran, kamu perlu menguasai operasi hitung dasar."
-    ),
+        title: NSLocalizedString("Sudah belajar soal-soal di atas?", comment: "Question about prior exercises"),
+        description: NSLocalizedString("Sebelum mulai belajar operasi hitung campuran, kamu perlu menguasai operasi hitung dasar.", comment: "Reminder to master basic arithmetic first")
+    )
 ]
 

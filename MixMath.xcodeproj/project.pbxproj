@@ -20,6 +20,7 @@
 		458F10D429DE63C100B5B510 /* TutorialFinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 458F10D329DE63C100B5B510 /* TutorialFinishView.swift */; };
 		742B1BB329DBEF340049E8EE /* QuestionSolutionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742B1BB229DBEF340049E8EE /* QuestionSolutionView.swift */; };
 		74846C0C29DDD1FD00530195 /* QuestionSolutionWrapUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74846C0B29DDD1FD00530195 /* QuestionSolutionWrapUpView.swift */; };
+		A60B38072CE2801000F9D12F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = A60B38062CE2801000F9D12F /* Localizable.xcstrings */; };
 		A66F6E7F29DBDC7300260680 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F6E7E29DBDC7300260680 /* TutorialView.swift */; };
 		A6759EE62CBD249D0070A747 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6759EE52CBD249D0070A747 /* AnswerButton.swift */; };
 		A6759EE82CBD24BD0070A747 /* AnswerButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6759EE72CBD24BD0070A747 /* AnswerButtonState.swift */; };
@@ -51,6 +52,7 @@
 		458F10D329DE63C100B5B510 /* TutorialFinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFinishView.swift; sourceTree = "<group>"; };
 		742B1BB229DBEF340049E8EE /* QuestionSolutionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSolutionView.swift; sourceTree = "<group>"; };
 		74846C0B29DDD1FD00530195 /* QuestionSolutionWrapUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSolutionWrapUpView.swift; sourceTree = "<group>"; };
+		A60B38062CE2801000F9D12F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		A66F6E7E29DBDC7300260680 /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		A6759EE52CBD249D0070A747 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		A6759EE72CBD24BD0070A747 /* AnswerButtonState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtonState.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 		2BE4F69C29D3F41C00D83CDF = {
 			isa = PBXGroup;
 			children = (
+				A60B38062CE2801000F9D12F /* Localizable.xcstrings */,
 				2BE4F6A729D3F41C00D83CDF /* MathO */,
 				2BE4F6A629D3F41C00D83CDF /* Products */,
 				CB81671929E64F8200034E56 /* Frameworks */,
@@ -392,11 +395,12 @@
 			};
 			buildConfigurationList = 2BE4F6A029D3F41C00D83CDF /* Build configuration list for PBXProject "MixMath" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = id;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = 2BE4F69C29D3F41C00D83CDF;
 			productRefGroup = 2BE4F6A629D3F41C00D83CDF /* Products */;
@@ -415,6 +419,7 @@
 			files = (
 				2BE4F6B029D3F41D00D83CDF /* Preview Assets.xcassets in Resources */,
 				2BE4F6AD29D3F41D00D83CDF /* Assets.xcassets in Resources */,
+				A60B38072CE2801000F9D12F /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

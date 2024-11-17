@@ -12,8 +12,11 @@ struct OnboardingView: View {
     @State private var isOnboardingComplete = false
 
     private var buttonLabel: String {
-        currentPage < onboardingStepsData.count - 1 ? "Saya Siap!" : "Saya Mengerti"
+        currentPage < onboardingStepsData.count - 1
+            ? NSLocalizedString("Saya Siap!", comment: "Label for the button when the user is ready to proceed")
+            : NSLocalizedString("Saya Mengerti", comment: "Label for the button when the user has finished onboarding")
     }
+
 
     init() {
         UIScrollView.appearance().bounces = false
