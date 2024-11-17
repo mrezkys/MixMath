@@ -72,7 +72,11 @@ struct QuestionSummaryView: View {
     
     
     private func summaryHeadline() -> String {
-        correctCount == 12 ? "Sangat Baik" : correctCount >= 10 ? "Cukup Baik" : "Kurang Baik"
+        correctCount == 12
+            ? NSLocalizedString("Sangat Baik", comment: "Label for a very good performance summary")
+            : correctCount >= 10
+            ? NSLocalizedString("Cukup Baik", comment: "Label for an adequate performance summary")
+            : NSLocalizedString("Kurang Baik", comment: "Label for a poor performance summary")
     }
     
     private func summarySubheadline() -> String {

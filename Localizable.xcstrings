@@ -127,6 +127,17 @@
         }
       }
     },
+    "Cukup Baik" : {
+      "comment" : "Label for an adequate performance summary",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quite Good"
+          }
+        }
+      }
+    },
     "Hasil Akhirnya adalah" : {
       "localizations" : {
         "en" : {
@@ -185,6 +196,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "You already understand how to use this app. Let's start learning mixed math operations."
+          }
+        }
+      }
+    },
+    "Kurang Baik" : {
+      "comment" : "Label for a poor performance summary",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Not Good"
           }
         }
       }
@@ -269,6 +291,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Summary"
+          }
+        }
+      }
+    },
+    "Sangat Baik" : {
+      "comment" : "Label for a very good performance summary",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Very Good"
           }
         }
       }
