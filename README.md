@@ -8,6 +8,10 @@ MixMath: Mixed Operations Game is an educational app specially designed for elem
 ## Screenshots
 ![Github Shot - MixMath](https://github.com/user-attachments/assets/0adfdbb3-3546-4e4d-98bf-c2c82dce0b1b)
 
+## Language Support
+- English localization.
+- Indonesian localization.
+
 
 ## Project Structure
 
