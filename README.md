@@ -3,10 +3,11 @@
 ## About
 MixMath: Mixed Operations Game is an educational app specially designed for elementary school children who want to learn mixed math operations in a fun and interactive way. Built using Swift and SwiftUI for iPhone.
 
-[Appstore Link]
+[App Store Link](https://apps.apple.com/sa/app/mixmath-mixed-operations-game/id6737522445?uo=2)
 
 ## Screenshots
--
+![Github Shot - MixMath](https://github.com/user-attachments/assets/0adfdbb3-3546-4e4d-98bf-c2c82dce0b1b)
+
 
 ## Project Structure
 
