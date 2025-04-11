@@ -91,7 +91,7 @@ struct QuestionSolutionView: View {
                     } else {
                         MagicTriangleView(
                             operation: question.solution[currentStep].operationStep,
-                            isParenthesis: question.solution[currentStep].isParenthtesis
+                            isParenthesis: question.solution[currentStep].hasParentheses
                         )
                         .onChange(of: currentStep) { newValue in
                             isShowingTriangle = false
